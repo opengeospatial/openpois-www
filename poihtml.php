@@ -34,7 +34,17 @@ $html .= '	<script src="/js/jquery-1.7.1.min.js"></script>' . $endln;
 $html .= '  <script src="/js/poihtml.js"></script>' . $endln;
 $html .= '  </head>' . $endln;
 $html .= '<body>' . $endln;
-$html .= '	<div id="fb-root"></div>' . $endln;
+
+//// Facebook stuff
+$html .= '  <div id="fb-root"></div>';
+$html .= '  <script>(function(d, s, id) {';
+$html .= '    var js, fjs = d.getElementsByTagName(s)[0];';
+$html .= '    if (d.getElementById(id)) return;';
+$html .= '    js = d.createElement(s); js.id = id;';
+$html .= '    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=473919912642476";';
+$html .= '    fjs.parentNode.insertBefore(js, fjs);';
+$html .= '  }(document, \'script\', \'facebook-jssdk\'));</script>';
+
 $html .= '	<div id="banner">' . $endln;
 $html .= '		<span id="title">OpenPOIs Atlas</span>' . $endln;
 $html .= '		<span id="sub">the hub of location data on the web</span>' . $endln;
@@ -111,6 +121,10 @@ function getRepresentations($poi) {
   $htmldata .= "<tr>" . $tdstyle . "HTML:</td><td><a href=\"" . $thispoiurl . "\" target=\"_blank\">" . $myid . ".html</a></td></tr>\n";
   $htmldata .= "</table>";
   $htmldata  .= '    <meta itemprop="map" content="http://' . $_SERVER['HTTP_HOST'] . '/map.html?id=' . $myid . '"/>' . $endln;
+
+  // place Facebook Like button
+  $htmldata .= '<div class="fb-like" data-href="' . $thispoiurl . '"';
+  $htmldata .= ' data-send="false" data-width="450" data-show-faces="true"></div>';
   
   // license
   $license = $poi->getLicense();
