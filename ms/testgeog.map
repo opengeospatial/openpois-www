@@ -1,0 +1,63 @@
+MAP
+  CONFIG "MS_ERRORFILE" "/tmp/mapserv-testgeog-error.log"
+  DEBUG 2
+
+  NAME           POI
+  STATUS         ON
+  SIZE           400 300
+  EXTENT         -72 40 -68 43
+  UNITS          DD
+  IMAGETYPE      PNG
+  IMAGECOLOR     255 255 255
+  SYMBOLSET      "symbols.txt"
+  FONTSET        "fonts.list"
+  WEB
+	TEMPLATE "template.html"
+	HEADER "header.html"
+	FOOTER "footer.html"
+	IMAGEPATH "tmp/"
+	IMAGEURL "/ms/tmp/"
+    METADATA
+      "wms_title"          "POI WMS"
+      "wms_onlineresource" "http://openpoi.ogcnetwork.net/cgi-bin/mapserv?map=/ms/testgeog.map&"
+      "wms_srs"            "EPSG:4326 EPSG:4269 EPSG:900913 EPSG:3857"
+      "wms_enable_request" "*"
+    END
+  END
+
+  PROJECTION
+    "init=epsg:4326"
+  END
+
+  # http://localhost/cgi-bin/mapserv?SERVICE=WMS&LAYERS=geompt&EXCEPTIONS=application/vnd.ogc.se_xml&FORMAT=image/gif&HEIGHT=450&TRANSPARENT=true&MAP=/Users/rajsingh/workspace/openpoidb/www/ms/testgeog.map&REQUEST=GetMap&BBOX=-71,41,-70,42&WIDTH=864&STYLES=default&SRS=EPSG:4326&VERSION=1.1.1
+
+  # Start of LAYER DEFINITIONS ---------------------------------------------
+  LAYER
+    NAME         testgeog
+    METADATA
+      "wms_title" "geog wms layer"
+      "wms_enable_request" "*"
+    END
+    TYPE         POINT
+    PROJECTION
+      "proj=lonlat"
+    END
+	CONNECTIONTYPE POSTGIS
+	CONNECTION	"host=localhost dbname=openpoidb user=poiwebuser password=fungwabus"
+    DATA         "geogpt from global_points using srid=4326 using unique id"
+    STATUS       ON
+
+    CLASS
+      NAME       "blue diamond"
+      STYLE
+		SYMBOL "diamond"
+		SIZE 12
+		COLOR        0 58 107 #212 25 25 #255 0 0
+		OUTLINECOLOR 255 255 255 #212 25 25 #255 0 0 #255 255 0
+		WIDTH 1
+      END
+    END
+  END # geogtest ends
+  # End of LAYER DEFINITIONS -------------------------------
+
+END 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<poi id="d4a30082-5b85-4dfe-b246-658a88d0f636" base="http://openpoi.ogcnetwork.net/pois">
+<label term="primary">
+<value>Old Cambridge</value>
+<author id="http://geonames.org" type="text/plain" term="publisher">
+<value>GeoNames</value>
+</author>
+</label>
+<category term="featureclass" scheme="http://www.geonames.org/export/codes.html">
+<value>P</value>
+<author id="http://geonames.org" type="text/plain" term="publisher">
+<value>GeoNames</value>
+</author>
+</category>
+<category term="featurecode" scheme="http://www.geonames.org/export/codes.html">
+<value>PPL</value>
+<author id="http://geonames.org" type="text/plain" term="publisher">
+<value>GeoNames</value>
+</author>
+</category>
+<category term="cc" scheme="http://www.geonames.org/export/dump/countryInfo.txt">
+<value>US</value>
+<author id="http://geonames.org" type="text/plain" term="publisher">
+<value>GeoNames</value>
+</author>
+</category>
+<link id="4946191" href="http://api.geonames.org/get?username=demo&amp;geonameId=4946191" base="http://www.geonames.org" term="related" scheme="http://www.iana.org/assignments/link-relations/link-relations.xml"/>
+<location>
+<point term="centroid">
+<author id="http://geonames.org" type="text/plain" term="publisher">
+<value>GeoNames</value>
+</author>
+<Point>
+<posList>42.37787 -71.11616</posList>
+</Point>
+</point>
+</location>
+</poi>

@@ -1,0 +1,107 @@
+MAP
+#  CONFIG "MS_ERRORFILE" "/tmp/mapserv-error.log"
+#  DEBUG 1
+
+  NAME           POI
+  STATUS         ON
+  SIZE           400 300
+  EXTENT         -72 40 -68 43
+  UNITS          DD
+  IMAGETYPE      PNG
+  IMAGECOLOR     255 255 255
+  SYMBOLSET      "symbols.txt"
+  FONTSET        "fonts.list"
+  WEB
+	TEMPLATE "template.html"
+	HEADER "header.html"
+	FOOTER "footer.html"
+	IMAGEPATH "tmp/"
+	IMAGEURL "/ms/tmp/"
+    METADATA
+      "wms_title"          "POI WMS"
+      "wms_onlineresource" "http://openpoi.ogcnetwork.net/cgi-bin/mapserv?map=/ms/op.map&"
+      "wms_srs"            "EPSG:4326 EPSG:4269 EPSG:3857"
+      "wms_enable_request" "*"
+    END
+  END
+
+  PROJECTION
+    "init=epsg:4326"
+  END
+
+  # http://localhost/cgi-bin/mapserv?SERVICE=WMS&LAYERS=geompt&EXCEPTIONS=application/vnd.ogc.se_xml&FORMAT=image/gif&HEIGHT=450&TRANSPARENT=true&MAP=/Users/rajsingh/workspace/openpoidb/www/ms/op.map&REQUEST=GetMap&BBOX=-71,41,-70,42&WIDTH=864&STYLES=default&SRS=EPSG:4326&VERSION=1.1.1
+
+  # Start of LAYER DEFINITIONS ---------------------------------------------
+  LAYER
+    NAME         minipoi
+    METADATA
+	  "wms_title" "MiniPOI"
+      "wms_enable_request" "*"
+      "gml_include_items" "all"
+    END
+    TYPE         POINT
+    PROJECTION
+      "init=epsg:4326"
+    END
+	CONNECTIONTYPE POSTGIS
+	CONNECTION	"host=localhost dbname=openpoidb user=poiwebuser password=fungwabus"
+    DATA         "geompt from minipoi using srid=4326 using unique oid"
+    STATUS       ON
+    MAXSCALEDENOM 9000
+
+    LABELITEM "label"
+
+    CLASS
+      NAME       "minipoi style"
+      STYLE
+      END
+      LABEL
+        COLOR 0 58 107
+        #SHADOWCOLOR 128 128 128 #255 128 128
+		#SHADOWSIZE 2 2
+		OUTLINECOLOR 255 255 255
+		OUTLINEWIDTH 2
+        TYPE TRUETYPE
+        FONT arial-rounded-bold
+        SIZE 9
+        BUFFER 4
+		#ANTIALIAS TRUE
+		POSITION CC
+		OFFSET 0 8
+		PARTIALS FALSE # when tiling you should always set partials to false
+      END
+    END
+  END # minipoi ends
+
+  LAYER
+    NAME         poipt
+    METADATA
+      "wms_title" "poipt"
+      "wms_enable_request" "GetMap GetFeatureInfo"
+      "gml_include_items" "all"
+    END
+    TYPE         POINT
+    PROJECTION
+      "init=epsg:4326"
+    END
+	CONNECTIONTYPE POSTGIS
+	CONNECTION	"host=localhost dbname=openpoidb user=poiwebuser password=fungwabus"
+    DATA         "geompt from geo using srid=4326 using unique oid"
+    STATUS       ON
+#    MINSCALEDENOM 4800
+    MAXSCALEDENOM 100000
+
+    CLASS
+      NAME       "blue diamond"
+      STYLE
+		SYMBOL "circle" #"diamond"
+		SIZE 10
+		COLOR        0 58 107 #212 25 25 #255 0 0
+		OUTLINECOLOR 11 102 211 #255 255 255 #212 25 25 #255 0 0 #255 255 0
+		WIDTH 4 #1
+      END
+    END
+  END # geompt ends
+  # End of LAYER DEFINITIONS -------------------------------
+
+END 

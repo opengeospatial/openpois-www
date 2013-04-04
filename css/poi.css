@@ -1,0 +1,158 @@
+/* @override http://poi.local/css/poi.css */
+
+body {
+  background: #003a6b;
+  /*width: 600px;*/
+}
+
+#banner, #search {
+  font-family: MuseoSans-500, 'Doppio One', sans-serif;
+  color: #fff;
+  background-color: #003a6b;
+  width: 100%;
+  line-height: 1.1;
+}
+
+#title {
+  font-size: 30pt;
+  padding-left: 8px;
+}
+
+#sub {
+  font-size: 10pt;
+  display: block;
+  position: relative;
+  left: 54px;
+  top: -8px;
+  width: 248px;
+}
+
+#search {
+  padding: 0px;
+}
+
+#sidebar {
+  /*width: 320px;*/
+  margin: 0px 0px 4px;
+  background-color: #003a6b;
+  padding: 2px 0 2px 2px;
+}
+
+@media only screen and (max-width: 500px) {
+	body {
+	  width: 320px;
+	}
+	#sidebar {
+	  width: 296px;
+	  margin: 0px 0px 4px;
+	  background-color: #003a6b;
+	  padding: 2px 0 2px 2px;
+	}
+}
+
+#data {
+  font-size: 100%;
+  background-color: #efebe2;
+}
+
+.headline, .subhead {
+  /*font-family: 'Share', cursive;*/
+/*  font-family: 'Doppio One', sans-serif;*/
+  border-top: 1px dotted #797979;
+  border-bottom: 1px dotted #797979;
+  background-color: #efebe2;
+  text-shadow: white 1px 1px 0px;
+}
+
+.headline {
+  font-size: 120%;
+  text-align: center;
+  border: 2px dotted #797979;
+  background-color: #f7ecc9;
+  text-shadow: 1px 1px 0 white;
+}
+
+.subhead {
+  text-align: left;
+  text-shadow: 1px 1px 0 white;
+  padding-left: 8px;
+  background-color: #e8ddbd;
+}
+
+.poiinfosection {
+  padding-left: 8px;
+  vertical-align: top;
+  /*display: block;*/
+  margin-bottom: 8px;
+  /*background-color: #e1ded1;*/
+}
+#poidescriptions p {
+  background-color: #f9f6ef;
+  margin: 4px;
+  padding: 2px;
+  /*border: 4px groove #efebe2;*/
+}
+
+.place {
+  /*font-size: 90%;*/
+  padding-left: 16px;
+  text-indent: -8px;
+}
+.tag .value {
+  font-size: 120%;
+  font-weight: bold;
+  background-color: #e8ddbd; /*#ccf1ff;*/ /*#475a6b;*/
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  padding: 2px;
+}
+.tag {
+  font-size: 70%;
+  font-style: italic;
+  margin-left: 6px;
+  /*background-color: #e8ddbd;*/
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+#relatedplaces {
+  table-layout: fixed;
+  margin: 4px;
+}
+#relatedplaces .place {
+  vertical-align: top;
+  text-align: right;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+#relatedplaces .placeicons {
+  text-align: left;
+}
+#relatedplaces img {
+  padding-left: 2px;
+}
+
+/*
+ * Flickr photos
+ */
+#pictures {
+  /*background-color: #444;*/
+  text-align: center;
+}
+.pic {
+  margin: 6px 6px 6px 0;
+  background-color: #333;
+  padding: 4px 4px 4px;
+  width: 75px;
+  display: inline-block;
+}
+#piccaption {
+  color: #ddd;
+  font-size: 8pt;
+  /*font-weight: bold;*/
+}

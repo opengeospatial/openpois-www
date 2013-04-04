@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteRule ^poi.html(.*)$ /openpoi/www/poi.html$1 [R,L]
+RewriteRule ^poihtml.php(.*)$ poihtml.php$1 
+RewriteRule ^pois/(.*)$ poiquery.php?id=$1 
+RewriteRule ^poisdev/(.*)$ openpoi/wwwdev/poiquery.php?id=$1
+#RewriteRule ^pois/(.*)$ http://localhost/openpoi/www/poi.html?id=$1 [P]
+#RewriteRule ^pois/(.*)$ /openpoi/www/poi.html?id=$1  [R]
+
+RewriteRule ^openpoiwms$ /cgi-bin/mapserv?map=/srv/web/openpoidb/ms/op.map& [QSA]
+RewriteRule ^openpoiwmsdev$ /cgi-bin/mapserv?map=/srv/web/openpoidbdev/ms/op.map& [QSA]
+RewriteRule ^testgeog$   /cgi-bin/mapserv?map=/srv/web/openpoidb/ms/testgeog.map& [QSA]
+

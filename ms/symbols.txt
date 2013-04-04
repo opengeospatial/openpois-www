@@ -1,0 +1,28 @@
+SYMBOLSET
+	SYMBOL 
+		NAME "circle"
+		TYPE ellipse
+		FILLED true
+		POINTS 
+			2 2
+		END
+	END
+
+  	SYMBOL 
+		NAME "pushpin"
+		TYPE pixmap
+		IMAGE "redpin2.gif"
+	END
+	SYMBOL
+		NAME "diamond"
+		TYPE vector
+		FILLED true
+		POINTS
+			1 0
+			2 1
+			1 2
+			0 1
+			1 0
+		END
+	END
+END

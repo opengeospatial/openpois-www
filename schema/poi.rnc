@@ -1,0 +1,44 @@
+default namespace = "http://www.w3.org/poi"
+namespace xsi = "http://www.w3.org/2001/XMLSchema-instance"
+
+start =
+  element poi {
+    attribute id { xsd:anyURI },
+    attribute xsi:schemaLocation { text },
+    element label {
+      attribute href { xsd:anyURI }?,
+      attribute term { text },
+      attribute type { text }?,
+      value?
+    }+,
+    element time {
+      attribute term { xsd:NCName },
+      attribute type { text },
+      value
+    },
+    element link {
+      attribute href { xsd:anyURI },
+      attribute term { xsd:NCName },
+      attribute type { text }?,
+      value?,
+      element author {
+        attribute href { xsd:anyURI },
+        attribute term { xsd:NCName },
+        attribute type { text },
+        value
+      }?,
+      element license {
+        attribute term { xsd:NCName },
+        value
+      }?
+    }+,
+    element location {
+      element point {
+        attribute term { xsd:NCName },
+        element Point {
+          element posList { text }
+        }
+      }
+    }
+  }
+value = element value { text }

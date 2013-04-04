@@ -1,0 +1,121 @@
+/* @override http://localhost/openpoi/www/css/main.css */
+
+body {
+  font-family: MuseoSans-500, "Lucida Grande", Lucida, Verdana, sans-serif;
+  font-size: 12pt;
+  color: #26355B; /*#475a6b;*/
+  margin: 40px;
+}
+
+#badge {
+	font-size:18pt;
+	color:#ff0000;
+}
+
+#banner {
+/*  font-family: 'Doppio One', sans-serif;;*/
+  font-weight: bold;
+  width: 100%;
+  display: block;
+/*  background-color: #003a6b; */
+  background-image: url(../graphics/logo_banner.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 136px;
+  margin-bottom: 36px;
+}
+
+a:link, a:visited {
+  color: #26355B;
+}
+
+#title, #sub {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12pt;
+}
+
+#sub {
+  font-size: 16pt;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.bar {
+  width: 336px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 640px) {
+  body {
+    margin: 4px;
+  }
+  #banner {
+    background-image: url(../graphics/logo_banner_sm.png);
+    padding-top: 48px;
+  }
+  #badge {
+    font-size: 12pt;
+    position: relative;
+    bottom: 12px;
+  }
+  .bar {
+  	width: 100%;
+  	display: block;
+  }
+  #sub {
+    font-size: 10pt;
+  }
+}
+
+.bar h3 {
+  text-align: center;
+  color: #fff;
+  background-color: #26355B; /*#475a6b;*/
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.bar p {
+  font-size: 10pt;
+  border-bottom: 2px dotted gray;
+  line-height: 1.4;
+}
+
+td {
+  vertical-align: top;
+}
+
+.question {
+  font-size: 115%;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+#footer {
+  text-align:center;
+  background-color: #acc8e0;
+}
+
+.codehl {
+background-color: #FFC;
+font-size: smaller;
+}
+
+#login {
+	font-size: 8pt;
+  text-align: right;
+  float: right;
+  border: 2px solid #26355B;
+}
+#login:before {
+  content:  "openid";
+  text-align: justify;
+  border: 2px solid #26355B;
+  background-color: #26355B;
+  color: #fff;
+}
