@@ -12,7 +12,7 @@ $html .= '  <head>' . $endln;
 $html .= '	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $endln;
 $html .= '	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">' . $endln;
 $html .= '	<meta name="apple-mobile-web-app-capable" content="yes">' . $endln;
-// Set title and add FB OpenGraph meta tags
+// Set title and add Facebook OpenGraph meta tags
 $html .= '	<meta property="og:title" content="' . $name . '" />' . $endln;
 $html .= '	<meta property="og:type" content="landmark"/>' . $endln;
 $html .= '	<meta property="og:url" content="http://' . $_SERVER['SERVER_NAME'] . "/pois/" . $myid . '"/>' . $endln;
