@@ -18,10 +18,20 @@ MAP
 	IMAGEPATH "tmp/"
 	IMAGEURL "/ms/tmp/"
     METADATA
-      "wms_title"          "POI WMS"
-      "wms_onlineresource" "http://openpoi.ogcnetwork.net/cgi-bin/mapserv?map=/ms/op.map&"
+      "ows_title"          "OpenPOIs Web Feature Service and Web Mapping Service"
+      "ows_abstract"       "Enabling open data services for the OpenPOIs database"
+      "ows_keywordlist"    "poi,pois,landmarks,placenames,points of interest"
+      "ows_fees"    "none"
+      "ows_accessconstraints"    "none"
+
+      "ows_contactorganization" "Open Geospatial Consortium"
+      "ows_contactperson"    "Raj Singh"
+
+      "wms_onlineresource" "http://openpois.ogcnetwork.net/openpoiwms"
+      "wfs_onlineresource" "http://openpois.ogcnetwork.net/openpoiwfs"
       "wms_srs"            "EPSG:4326 EPSG:4269 EPSG:3857"
       "wms_enable_request" "*"
+      "wfs_enable_request" "*"
     END
   END
 
@@ -35,9 +45,13 @@ MAP
   LAYER
     NAME         minipoi
     METADATA
-	  "wms_title" "MiniPOI"
+	  "wms_title" "POI Names"
       "wms_enable_request" "*"
+      "wfs_title" "POI Names"
+      "wfs_srs" "EPSG:4326 EPSG:4269 EPSG:3857"
       "gml_include_items" "all"
+      "gml_featureid" "poiuuid"
+      "wfs_enable_request" "*"
     END
     TYPE         POINT
     PROJECTION
@@ -75,11 +89,6 @@ MAP
 
   LAYER
     NAME         poipt
-    METADATA
-      "wms_title" "poipt"
-      "wms_enable_request" "GetMap GetFeatureInfo"
-      "gml_include_items" "all"
-    END
     TYPE         POINT
     PROJECTION
       "init=epsg:4326"
