@@ -53,38 +53,41 @@ body {
 #data {
   font-size: 100%;
   background-color: #efebe2;
+  border: 8px solid #fff;
 }
 
-.headline, .subhead {
+.subhead {
   /*font-family: 'Share', cursive;*/
 /*  font-family: 'Doppio One', sans-serif;*/
   border-top: 1px dotted #797979;
   border-bottom: 1px dotted #797979;
-  background-color: #efebe2;
+  text-align: left;
+  text-shadow: 1px 1px 0 white;
+  padding-right: 8px;
+  background-color: #e8ddbd; /*#efebe2;*/
   text-shadow: white 1px 1px 0px;
+  margin-bottom: 4px;
 }
 
 .headline {
-  font-size: 120%;
+  font-size: 135%;
   text-align: center;
-  border: 2px dotted #797979;
-  background-color: #f7ecc9;
-  text-shadow: 1px 1px 0 white;
-}
-
-.subhead {
-  text-align: left;
-  text-shadow: 1px 1px 0 white;
-  padding-left: 8px;
-  background-color: #e8ddbd;
+/*  border: 2px dotted #797979;*/
+  background-color: #fff; /*#f7ecc9;*/
+  text-shadow: 1px 1px 0 #ccc;
 }
 
 .poiinfosection {
-  padding-left: 8px;
+  /*margin-left: 8px;
+  margin-right: 16px;*/
   vertical-align: top;
-  /*display: block;*/
-  margin-bottom: 8px;
-  /*background-color: #e1ded1;*/
+  background-color: #efebe2;
+  text-indent: 8px;
+}
+
+#poiitems {
+  background-color: #fff;
+  margin-bottom: 0px;
 }
 #poidescriptions p {
   background-color: #f9f6ef;
@@ -122,7 +125,7 @@ body {
 
 #relatedplaces {
   table-layout: fixed;
-  margin: 4px;
+  /*margin: 4px;*/
 }
 #relatedplaces .place {
   vertical-align: top;
