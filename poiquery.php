@@ -70,14 +70,14 @@ if ( empty($id) ) {
   if (isset($query['start'])) {
     $start = phpDate($query['start']);
     if ($start == null) {
-      sendError("Invalid start date: " . $query['start'], $format);
+      sendError("Invalid start date: " . $query['start'], $_SERVER['QUERY_STRING'], $format);
     }
   }
   $end = null;
   if (isset($query['end'])) {
     $end = phpDate($query['end']);
     if ($end == null) {
-      sendError("Invalid end date: " . $query['end'], $format);
+      sendError("Invalid end date: " . $query['end'], $_SERVER['QUERY_STRING'], $format);
     }
   }
 }
@@ -88,10 +88,10 @@ if ( empty($id) ) {
     $querybycenter = false;
 
   if ( empty($bbox) && !$querybycenter ) 
-    sendError("Required parameter missing. Either bbox or lat, lon and radius required.", $format);
+    sendError("Required parameter missing. Either bbox or lat, lon and radius required.", $_SERVER['QUERY_STRING'], $format);
   if ( $querybycenter ) {
     if ( $radius > 5000 || $radius < 1 ) 
-      sendError("Radius value of $radius out of limits. Radius must be between 1 and 1,000.", $format);
+      sendError("Radius value of $radius out of limits. Radius must be between 1 and 1,000.", $_SERVER['QUERY_STRING'], $format);
   }
 }
 
@@ -115,9 +115,9 @@ if ( !empty($id) ) { // first see if we can query by id
 }
 
 if ( empty($pois) && !empty($id) ) {
-  sendError("No POIS found for ID: $id.", $format);
+  sendError("No POIS found for ID: $id.", $_SERVER['QUERY_STRING'], $format);
 } else if ( empty($pois) || (sizeof($pois)==1 && $pois[0] == null) ) {
-  sendError("No POIS found for search: " . $_SERVER['QUERY_STRING'], $format);
+  sendError("No POIS found for search: ", $_SERVER['QUERY_STRING'], $format);
 }
 
 // FOR DEBUGGING
@@ -353,13 +353,21 @@ function queryByName($pois, $name) {
   return $goodpois;
 }
 
-function sendError($msg, $format='text/plain') {
+function sendError($msg, $query='', $format='text/plain') {
   if ( $format == 'application/xml' ) {
     header("Content-Type: application/xml; charset=utf-8");
-    echo "<Error>\n\t<msg>$msg</msg>\n</Error>\n";
+    header("HTTP/1.0 500 Internal Server Error");
+    echo "<Error>\n\t<msg>$msg</msg>\n\t<query><![CDATA[$query]]></query></Error>\n";
+    
+  } else if ( $format == 'application/json' ) {
+    header("Content-Type: application/json; charset=utf-8");
+    header("HTTP/1.0 500 Internal Server Error");
+    echo '{"err": {"message": "' . $msg . '", "query": "' . $query . '"}}';
+    
   } else {
     header("Content-Type: text/plain; charset=utf-8");
-    echo $msg;
+    header("HTTP/1.0 500 Internal Server Error");
+    echo "message: $msg\nquery: $query";
   }
   die;
 }

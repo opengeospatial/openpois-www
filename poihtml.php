@@ -53,12 +53,12 @@ echo $html; // END intro
 
 //// section variables
 $messages = '		<div id="messages"></div>' . $endln;
-$poiname = '		<div id="poiname"><p class="headline" itemprop="name">' . $name . '</p></div>' . $endln;
+$poiname = '		<div id="poiname"><p class="headline">OpenPOIs data for <span itemprop="name">' . $name . '</span></p></div>' . $endln;
 $poiitems = getRepresentations($poi);
 $poilocation = '<div id="poilocation" class="poiinfosection"'
               . ' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">' . $endln 
-              . '<p class="subhead">location: <span itemprop="latitude">' . $lat
-              . '</span>, <span itemprop="longitude">' . $lon . '</span></p></div>' . $endln;
+              . '<p class="subhead">location</p><p>latitude: <span itemprop="latitude">' . $lat
+              . '</span></p><p>longitude: <span itemprop="longitude">' . $lon . '</span></p></div>' . $endln;
 $poidescriptions = getDescriptions($poi);
 $tagsarea = getTags($poi);
 $placesarea = getRelatedPlaces($poi);
@@ -113,6 +113,7 @@ function getRepresentations($poi) {
   $thispoiurl = $baseurl . '/' . $myid;
   $htmldata = '<div id="poiitems" class="poiinfosection">' . $endln;
   $htmldata .= '<div id="source">' . $endln;
+  $htmldata .= '<p class="subhead">links</p>' . $endln;
   $htmldata .= "<table>";
   
   $tdstyle = '<td style="text-align:right;padding-right:4px">';
