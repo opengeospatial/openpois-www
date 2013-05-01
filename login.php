@@ -66,14 +66,20 @@
 	
 	<div>
 		<a href="#" onclick="FBlogin()">
-			<img src="graphics/social_signin/facebook_signin.png" alt="Sign in with Facebook">
+			<img src="graphics/social_signin/facebook_signin.png" alt="Sign in with Facebook"/>
 		</a>
 	<div>
-		<div>
-			<a href="#" onclick="#">
-				<img src="graphics/social_signin/openid_signin.png" alt="Sign in with OpenID">
-			</a>
-		<div>
+	<div>
+		<a href="login_openid.php">
+			<img src="graphics/social_signin/openid_signin.png" alt="Sign in with OpenID"/>
+		</a>
+	<div>
+	<div>
+		<ul>
+			<li>One less password to remember</li>
+			<li>We won't automatically post to your wall</li>
+		</ul>
+	</div>
 </div>
 <p><!-- end bars --></p>
 <div id="komodocredit"><p><a href="http://www.komodomedia.com/blog/2009/06/sign-in-with-twitter-facebook-and-openid/">sign in graphics courtesy of komodomedia.com</a></p></div>
