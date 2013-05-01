@@ -30,8 +30,9 @@
 			    <input type="text" name="yourname" value="" />
 			  </div>
 			  <div class="control required">
-			    <label for="youremail">Your Email (so we can contact you if there are questions)</label>
-			    <input type="text" name="youremail" value="" />
+			    <label for="youremail">Your Email</label>
+			    <input type="text" name="youremail" value="" 
+                            placeholder="used only in case of questions" />
 			  </div>
 			<hr>
 			  <div class="control required">
@@ -43,8 +44,9 @@
 			    <input type="text" name="businessdescription" value="" />
 			  </div>
 			  <div class="control">
-			    <label for="businesstype">Business Type (such as restaurant, law office, toy store, etc.)</label>
-			    <input type="text" name="businesstype" value="" />
+			    <label for="businesstype">Business Type</label>
+			    <input type="text" name="businesstype" value="" 
+                            placeholder="such as restaurant, law office, toy store, etc."/>
 			  </div>
 			<hr>
 			  <div class="control required">
