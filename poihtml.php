@@ -31,6 +31,7 @@ $html .= '	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.
 $html .= '    <link type="text/css" rel="stylesheet" href="/css/style.css">' . $endln;
 $html .= '    <link type="text/css" rel="stylesheet" href="/css/poi.css">' . $endln;
 $html .= '	<script src="/js/jquery-1.7.1.min.js"></script>' . $endln;
+$html .= '  <script src="/js/login.js"></script>' . $endln;
 $html .= '  <script src="/js/poihtml.js"></script>' . $endln;
 $html .= '  </head>' . $endln;
 $html .= '<body>' . $endln;
@@ -46,7 +47,13 @@ $html .= '    fjs.parentNode.insertBefore(js, fjs);';
 $html .= '  }(document, \'script\', \'facebook-jssdk\'));</script>';
 
 $html .= '	<div id="banner">' . $endln;
-$html .= '		<span id="title">OpenPOIs Atlas</span>' . $endln;
+
+//// Authentication 
+include_once('loginout.php');
+$thispoiurl = $baseurl . '/' . $myid;
+$html .= getButton($thispoiurl);
+
+$html .= '		<span id="title">OpenPOIs Registry</span>' . $endln;
 $html .= '		<span id="sub">the hub of location data on the web</span>' . $endln;
 $html .= '	</div>' . $endln;
 echo $html; // END intro

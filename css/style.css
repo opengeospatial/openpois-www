@@ -68,3 +68,7 @@ h4 {
     font-size: 100%;
     font-weight: bold;
 }
+
+#login {
+  float: right;
+}

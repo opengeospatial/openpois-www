@@ -1,17 +1,10 @@
-<?php
+<?php 
 session_start();
-if ( isset( $_COOKIE['uid'] ) ) {
-	if ( isset ($_SESSION['loginreferrer']) ) {
-		$lf = $_SESSION['loginreferrer'];
-		header('Location:' . $lf);
-	} else {
-		header('Location:/');
-	}
-}
+if ( !empty($_SERVER['HTTP_REFERER']) ) 
+	$_SESSION['loginreferer'] = $_SERVER['HTTP_REFERER'];
 
-include('header.php');
+include_once('../header.php');
 ?>
-	<link rel="stylesheet" href="css/login.css" type="text/css">
 	<title>OpenPOIs Registry Login</title>
 </head>
 <body>
@@ -20,7 +13,7 @@ include('header.php');
 		<span id="sub">the hub of location data on the web</span>
 	</div>
 	<div class="ink-container">
-		<p class="headline">Sign in with any of these sites</p>
+		<h3><br>Sign in with any of these sites</h3>
 		<div id="fb-root"></div>
 		<script>
 		  // Additional JS functions here
@@ -44,8 +37,8 @@ include('header.php');
 				FBlogin();
 			  }
 			 });
-	
-	
+		
+		
 		  };
 
 		  // Load the SDK Asynchronously
@@ -60,23 +53,28 @@ include('header.php');
 	
 		<div>
 			<a href="#" onclick="FBlogin()">
-				<img src="graphics/social_signin/facebook_signin.png" alt="Sign in with Facebook"/>
+				<img src="../graphics/social_signin/facebook_signin.png" alt="Sign in with Facebook"/>
 			</a>
 		<div>
 		<div>
-			<a href="login_openid.php">
-				<img src="graphics/social_signin/openid_signin.png" alt="Sign in with OpenID"/>
+			<a href="openid_login.php">
+				<img src="../graphics/social_signin/openid_signin.png" alt="Sign in with OpenID"/>
 			</a>
 		<div>
 		<div>
+			<p>Why doesn't OpenPOIs have it's own user accounts?</p>
 			<ul>
 				<li>One less password to remember</li>
-				<li>We won't automatically post to your wall</li>
+				<li>One less online presence to manage</li>
+				<li>We won't <em>ever</em> post anything to your account</li>
 			</ul>
 		</div>
 	</div><!-- end ink-container -->
+
 <p><!-- end bars --></p>
-<div id="komodocredit"><p><a href="http://www.komodomedia.com/blog/2009/06/sign-in-with-twitter-facebook-and-openid/">sign in graphics courtesy of komodomedia.com</a></p></div>
+<div id="komodocredit">
+	<p><a href="http://www.komodomedia.com/blog/2009/06/sign-in-with-twitter-facebook-and-openid/">sign in graphics courtesy of komodomedia.com</a></p>
+</div>
 <div id="footer">
 	<a href="/">Home</a> | <a href="api.html">API</a> | 
     <a href="faq.html">FAQ</a> | 
