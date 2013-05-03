@@ -21,6 +21,13 @@ $(document).ready(function() {
   });
 });
 
+function queryFail(data, textStatus, jqXHR) {
+  $('#map').css('cursor','default');
+  // map.popups[0].destroy();
+  errormsg = jQuery.parseJSON(data.responseText);
+  alert("Name search query failed: "+errormsg.err.message+"\n"+errormsg.err.query);
+}
+
 function handleNameSearch(name) {
   var ex = map.getExtent().transform(map.getProjectionObject(), epsg4326);
   var bbox = ex.toBBOX();
@@ -29,18 +36,16 @@ function handleNameSearch(name) {
     type: "GET", 
     url: "poiquery.php", 
     data: "name="+name+"&bbox="+bbox+"&maxfeatures=1&format=application/json&output=brief", 
+    error: queryFail, 
     success: showPopUp
   });
   
-  q.fail(function(data, textStatus, jqXHR) {
-    alert("Name search query failed: "+textStatus);
-  });
   
   // ajax request was for JSON format, so data is auto-converted to an object
   // q.success(function(data, textStatus, jqXHR) {
   //   displayPOI(data, map, true);
   // });  
-  q.success = showPopUp; // ajax request was for JSON format, so data is auto-converted to an object
+  // q.success = showPopUp; // ajax request was for JSON format, so data is auto-converted to an object
 }
 
 function handleMapId(id) {
@@ -49,14 +54,9 @@ function handleMapId(id) {
       type: "GET", 
       url: "poiquery.php", 
       data: "id="+id+"&maxfeatures=1&format=application/json&output=brief", 
+      error: queryFail, 
       success: showPopUp
   });
-  
-  q.fail(function(data, textStatus, jqXHR) {
-    alert("query failed: "+textStatus);
-  });
-  
-  q.success = showPopUp; // ajax request was for JSON format, so data is auto-converted to an object
 }
 
 function handleClick(lonlat) {
@@ -67,14 +67,9 @@ function handleClick(lonlat) {
       type: "GET", 
       url: "poiquery.php", 
       data: "lat="+lonlat.lat+"&lon="+lonlat.lon+"&maxfeatures=1&format=application/json&output=brief", 
+      error: queryFail, 
       success: showPopUp
   });
-  
-  q.fail(function(data, textStatus, jqXHR) {
-    alert("query failed: "+textStatus);
-  });
-  
-  q.success = showPopUp; // ajax request was for JSON format, so data is auto-converted to an object
 }
 
 function showPopUp(data, textStatus, jqXHR) {

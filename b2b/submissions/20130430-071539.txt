@@ -1,0 +1,12 @@
+timestamp: 20130430-071539
+yourname: Raj Singh
+youremail: rsingh@example.com
+businessname: asdf
+businessdescription: asdf
+businesstype: asdf
+addressline1: asdf
+addressline2: 
+city: Melrose
+state: MA
+zip: 02176
+country: USA
