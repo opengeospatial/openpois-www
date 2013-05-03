@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>OpenPOIs Repository Business Listing Submission</title>
 	<link type="text/css" rel="stylesheet" href="../css/MyFontsWebfontsKit.css">
 	<link rel="stylesheet" href="../css/poi.css" type="text/css">
@@ -30,8 +30,9 @@
 			    <input type="text" name="yourname" value="" />
 			  </div>
 			  <div class="control required">
-			    <label for="youremail">Your Email (so we can contact you if there are questions)</label>
-			    <input type="text" name="youremail" value="" />
+			    <label for="youremail">Your Email</label>
+			    <input type="text" name="youremail" value="" 
+                            placeholder="used only in case of questions" />
 			  </div>
 			<hr>
 			  <div class="control required">
@@ -43,8 +44,9 @@
 			    <input type="text" name="businessdescription" value="" />
 			  </div>
 			  <div class="control">
-			    <label for="businesstype">Business Type (such as restaurant, law office, toy store, etc.)</label>
-			    <input type="text" name="businesstype" value="" />
+			    <label for="businesstype">Business Type</label>
+			    <input type="text" name="businesstype" value="" 
+                            placeholder="such as restaurant, law office, toy store, etc."/>
 			  </div>
 			<hr>
 			  <div class="control required">
