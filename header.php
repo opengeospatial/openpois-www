@@ -9,7 +9,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">
 	<link type="text/css" rel="stylesheet" href="/css/ink/css/ink.css">
-	<link type="text/css" rel="stylesheet" href="/css/style.css" type="text/css">
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
 	<!--[if IE]>
 	<link rel="stylesheet" href="css/ink/css/ink-ie.css" type="text/css" media="screen" title="none" charset="utf-8">
   	<![endif]-->

@@ -201,6 +201,16 @@ function initmap() {
   if ( id != null ) {
     handleMapId(id);
   }
+
+  navigator.geolocation.getCurrentPosition(function(position) {       
+    var lonLat = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude)
+      .transform(
+        new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+        map.getProjectionObject() //to Spherical Mercator Projection
+      );
+
+    map.setCenter(lonLat, 15);
+  });
 }
 
 function getUrlVars() {
