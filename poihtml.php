@@ -123,7 +123,7 @@ function getRepresentations($poi) {
 
   // place Facebook Like button
   $htmldata .= '<div class="fb-like" data-href="' . $thispoiurl . '"';
-  $htmldata .= ' data-send="false" data-width="450" data-show-faces="true"></div>';
+  $htmldata .= ' data-send="false" data-width="250" data-show-faces="true"></div>';
 
   $htmldata .= '<div id="links"><table>';
   
