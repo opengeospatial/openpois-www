@@ -9,8 +9,8 @@
 	echo ( getButton('http://' . $_SERVER['HTTP_HOST'] . '/b2b/') );
 	?>
 	<div id="banner">
-		<span id="title">OpenPOIs</span>
-		<span id="sub">the hub of location data on the web</span>
+		<span id="title"></span>
+		<span id="sub">the web of location data</span>
 	</div>
 	<div class="ink-container">
 		<h3><br>Submit/Update your business listing</h3>

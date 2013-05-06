@@ -9,7 +9,7 @@ include_once('../header.php');
 </head>
 <body>
 	<div id="banner">
-		<span id="title">OpenPOIs</span>
+		<span id="title"></span>
 		<span id="sub">the web of location data</span>
 	</div>
 	<div class="ink-container">

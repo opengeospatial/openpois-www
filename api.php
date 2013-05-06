@@ -1,25 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<?php include('header.php'); ?>
     <title>OpenPOI Registry Web Services API</title>
-	<link type="text/css" rel="stylesheet" href="css/MyFontsWebfontsKit.css">
-    <link type="text/css" rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=473919912642476";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=473919912642476";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
     
     <div id="banner">
-      <div id="title"></div>
-      <div id="sub">Web Services API</div>
+    	<span id="title"></span>
+    	<span id="sub">the web of location data</span>
     </div>
+	<div class="ink-container">
+		<h1>Web Services API</h1>
+
     <h3>Request</h3>
     <span class="codehl">http://openpois.ogcnetwork.net/poiquery.php?</span>
     <h3>Parameters</h3>
@@ -124,12 +122,8 @@
       class="fb-like"></div>
     <p><br />
     </p>
-    <!-- footer -->
-    <div id="footer"> <a href="/">Home</a> | <a href="api.html">API</a> | <a
-        href="faq.html">FAQ</a> | 
-        <a href="contributors.html">Contributors</a> | 
-		<a href="terms.html">Terms</a> | 
-		<a href="https://lists.opengeospatial.org/mailman/listinfo/openpoidb-announce">Mailing
-        List</a> </div>
+
+			<?php include('footer.php'); ?>
+		</div><!-- end ink-container -->
   </body>
 </html>

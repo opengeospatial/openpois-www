@@ -90,22 +90,6 @@ td {
   vertical-align: top;
 }
 
-.question {
-  font-size: 115%;
-  font-weight: bold;
-  margin-top: 1em;
-}
-
-#footer {
-  text-align:center;
-  background-color: #acc8e0;
-}
-
-.codehl {
-background-color: #FFC;
-font-size: smaller;
-}
-
 #login {
 	font-size: 8pt;
   text-align: right;

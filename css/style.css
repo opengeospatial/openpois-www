@@ -32,9 +32,9 @@ body {
 #banner {
   font-family: MuseoSans-500, 'Doppio One', sans-serif;
   color: #fff;
-  background-color: #003a6b;
   width: 100%;
   line-height: 1.1;
+  background: #003a6b url(../graphics/logo_banner_bluewhite_sm.png) no-repeat;
 }
 
 #title {
@@ -47,7 +47,7 @@ body {
   display: block;
   position: relative;
   left: 54px;
-  top: -8px;
+  top: -6px;
   width: 248px;
 }
 
@@ -75,24 +75,16 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.5em;
     font-weight: normal;
 }
-h1 {
-    font-size: 130%;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid #fcb100;
+
+.question {
+  font-size: 115%;
+  font-weight: bold;
+  margin-top: 1em;
 }
-h2 {
-    font-size: 120%;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid #aaa;
-}
-h3 {
-    font-size: 110%;
-    margin-bottom: 0.5em;
-    /*text-decoration: underline;*/
-}
-h4 {
-    font-size: 100%;
-    font-weight: bold;
+
+.codehl {
+  background-color: #FFC;
+  font-size: smaller;
 }
 
 #login {
