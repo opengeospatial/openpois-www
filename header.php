@@ -8,5 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">
-	<link rel="stylesheet" href="/css/poi.css" type="text/css">
-	<link rel="stylesheet" href="/css/ink/css/ink.css">
+	<link type="text/css" rel="stylesheet" href="/css/ink/css/ink.css">
+	<link type="text/css" rel="stylesheet" href="/css/style.css" type="text/css">
+	<!--[if IE]>
+	<link rel="stylesheet" href="css/ink/css/ink-ie.css" type="text/css" media="screen" title="none" charset="utf-8">
+  	<![endif]-->

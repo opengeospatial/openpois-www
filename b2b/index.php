@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+<?php include('../header.php'); ?>
+	<script type="text/javascript" src="http://js.sapo.pt/Bundles/Ink-v1.js"></script>
 	<title>OpenPOIs Repository Business Listing Submission</title>
-	<link type="text/css" rel="stylesheet" href="../css/MyFontsWebfontsKit.css">
-	<link rel="stylesheet" href="../css/poi.css" type="text/css">
-	<link rel="stylesheet" href="../css/ink/css/ink.css">
-	<!--[if IE]>
-	<link rel="stylesheet" href="css/ink/css/ink-ie.css" type="text/css" media="screen" title="none" charset="utf-8">
-  	<![endif]-->
 </head>
 <body>
+<?php
+	//// Authentication 
+	include_once('../loginout.php');
+	echo ( getButton('http://' . $_SERVER['HTTP_HOST'] . '/b2b/') );
+	?>
 	<div id="banner">
 		<span id="title">OpenPOIs</span>
 		<span id="sub">the hub of location data on the web</span>
@@ -24,7 +20,8 @@
 		<hr>
 		<div id="listingform" class="ink-l100 ink-m100 ink-s100">
 			<p>(starred fields are required)</p>
-			<form class="ink-form block" method="POST" action="submittedlisting.php"><fieldset>
+			<form class="ink-form block" method="POST" action="submittedlisting.php">
+				<fieldset>
 			  <div class="control required">
 			    <label for="yourname">Your Name</label>
 			    <input type="text" name="yourname" value="" />

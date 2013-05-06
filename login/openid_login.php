@@ -1,25 +1,18 @@
 <?php 
 require_once "common.php";
+include('../header.php');
 ?>
 
-<!DOCTYPE html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<title>OpenPOIs Registry OpenID Login</title>
-	<link type="text/css" rel="stylesheet" href="../css/MyFontsWebfontsKit.css">
-	<link rel="stylesheet" href="../css/poi.css" type="text/css">
 	<link rel="stylesheet" href="../css/login.css" type="text/css">
-	<!-- <script src="../js/login.js"></script> -->
+	<title>OpenPOIs Registry OpenID Login</title>
 </head>
 
 <body>
 	<div id="banner">
-		<span id="title">OpenPOIs Atlas</span>
-		<span id="sub">the hub of location data on the web</span>
+		<span id="title">OpenPOIs</span>
+		<span id="sub">the web of location data</span>
 	</div>
-	<div id="data">
+	<div id="data" class="ink-container">
 
 <?php
 if (isset($msg)) {
@@ -32,25 +25,19 @@ if (isset($success)) {
   print "<div class=\"success\">$success</div>";
 } else { 
 ?>
+
   <p style="text-align:center"><img src="../graphics/openid-logo-sm.png"></p>
   <div id="verify-form">
-    <form method="get" action="try_auth.php">
-      Identity&nbsp;URL:
+    <form class="ink-form block" method="GET" action="try_auth.php">
+		<label for="openid_identifier">Identity URL</label>
       <input type="text" name="openid_identifier" value="" />
-      <input type="submit" value="Verify" />
+      <input class="ink-button info" type="submit" value="Verify" />
       <input type="hidden" name="action" value="verify" />
     </form>
   </div>
 <?php } ?>
 </div><!-- end div id=data-->
 
-<p><!-- end bars --></p>
-<div id="footer">
-	<a href="/">Home</a> | <a href="api.html">API</a> | 
-    <a href="faq.html">FAQ</a> | 
-    <a href="contributors.html">Contributors</a> | 
-    <a href="terms.html">Terms</a> | 
-    <a href="https://lists.opengeospatial.org/mailman/listinfo/openpoidb-announce">Mailing List</a>
-</div>
+<?php include('../footer.php'); ?>
 </body>
 </html>

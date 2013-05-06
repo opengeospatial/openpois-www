@@ -10,7 +10,7 @@ include_once('../header.php');
 <body>
 	<div id="banner">
 		<span id="title">OpenPOIs</span>
-		<span id="sub">the hub of location data on the web</span>
+		<span id="sub">the web of location data</span>
 	</div>
 	<div class="ink-container">
 		<h3><br>Sign in with any of these sites</h3>
@@ -55,14 +55,15 @@ include_once('../header.php');
 			<a href="#" onclick="FBlogin()">
 				<img src="../graphics/social_signin/facebook_signin.png" alt="Sign in with Facebook"/>
 			</a>
-		<div>
+		</div>
 		<div>
 			<a href="openid_login.php">
 				<img src="../graphics/social_signin/openid_signin.png" alt="Sign in with OpenID"/>
 			</a>
+		</div>
 		<div>
-		<div>
-			<p>Why doesn't OpenPOIs have it's own user accounts?</p>
+			<hr>
+			<h5>Why doesn't OpenPOIs have it's own user accounts?</h5>
 			<ul>
 				<li>One less password to remember</li>
 				<li>One less online presence to manage</li>
@@ -71,16 +72,14 @@ include_once('../header.php');
 		</div>
 	</div><!-- end ink-container -->
 
-<p><!-- end bars --></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div id="komodocredit">
 	<p><a href="http://www.komodomedia.com/blog/2009/06/sign-in-with-twitter-facebook-and-openid/">sign in graphics courtesy of komodomedia.com</a></p>
 </div>
-<div id="footer">
-	<a href="/">Home</a> | <a href="api.html">API</a> | 
-    <a href="faq.html">FAQ</a> | 
-    <a href="contributors.html">Contributors</a> | 
-    <a href="terms.html">Terms</a> | 
-    <a href="https://lists.opengeospatial.org/mailman/listinfo/openpoidb-announce">Mailing List</a>
-</div>
+<?php include('../footer.php'); ?>
 </body>
 </html>

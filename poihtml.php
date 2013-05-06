@@ -1,17 +1,19 @@
 <?php 
-
 $endln = "\n";
 $name = $poi->labels[0]->getValue();
 $myid = $poi->getMyId();
 
-$html = "";
-
-$html .= '<!DOCTYPE html>' . $endln;
+$html = '<!DOCTYPE html>' . $endln;
 $html .= '<html xmlns:fb="http://ogp.me/ns/fb#">' . $endln;
 $html .= '  <head>' . $endln;
 $html .= '	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $endln;
 $html .= '	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">' . $endln;
 $html .= '	<meta name="apple-mobile-web-app-capable" content="yes">' . $endln;
+$html .= '	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">' . $endln;
+$html .= '	<link type="text/css" rel="stylesheet" href="/css/ink/css/ink.css">' . $endln;
+$html .= '    <link type="text/css" rel="stylesheet" href="/css/style.css">' . $endln;
+$html .= '    <link type="text/css" rel="stylesheet" href="/css/poi.css">' . $endln;
+
 // Set title and add Facebook OpenGraph meta tags
 $html .= '	<meta property="og:title" content="' . $name . '" />' . $endln;
 $html .= '	<meta property="og:type" content="landmark"/>' . $endln;
@@ -27,11 +29,8 @@ if ( !empty($loc) ) {
 }
 $html .= '	<meta property="fb:app_id" content="473919912642476"/>' . $endln;
 $html .= '	<title>OpenPOIs Atlas - ' . $name . '</title>' . $endln;
-$html .= '	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">' . $endln;
-$html .= '    <link type="text/css" rel="stylesheet" href="/css/style.css">' . $endln;
-$html .= '    <link type="text/css" rel="stylesheet" href="/css/poi.css">' . $endln;
 $html .= '	<script src="/js/jquery-1.7.1.min.js"></script>' . $endln;
-$html .= '  <script src="/js/login.js"></script>' . $endln;
+// $html .= '  <script src="/js/login.js"></script>' . $endln;
 $html .= '  <script src="/js/poihtml.js"></script>' . $endln;
 $html .= '  </head>' . $endln;
 $html .= '<body>' . $endln;
@@ -53,19 +52,24 @@ include_once('loginout.php');
 $thispoiurl = $baseurl . '/' . $myid;
 $html .= getButton($thispoiurl);
 
-$html .= '		<span id="title">OpenPOIs Registry</span>' . $endln;
-$html .= '		<span id="sub">the hub of location data on the web</span>' . $endln;
+$html .= '		<span id="title">OpenPOIs</span>' . $endln;
+$html .= '		<span id="sub">the web of location data</span>' . $endln;
 $html .= '	</div>' . $endln;
 echo $html; // END intro
 
 //// section variables
-$messages = '		<div id="messages"></div>' . $endln;
-$poiname = '		<div id="poiname"><p class="headline">OpenPOIs data for <span itemprop="name">' . $name . '</span></p></div>' . $endln;
+// $messages = '<div id="messages"></div>' . $endln;
+$poiname = '<div id="poiname">' . $endln 
+			. '<div class="headline">OpenPOIs data for <span itemprop="name">' . $name . '</span></div>' . $endln 
+//			. '<div id="signininfo">Sign in above to add names, descriptions, categories and links</div>' . $endln 
+			. '</div>' . $endln;
 $poiitems = getRepresentations($poi);
 $poilocation = '<div id="poilocation" class="poiinfosection"'
               . ' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">' . $endln 
-              . '<p class="subhead">location</p><p>latitude: <span itemprop="latitude">' . $lat
-              . '</span></p><p>longitude: <span itemprop="longitude">' . $lon . '</span></p></div>' . $endln;
+              . '<p class="subhead">location</p>' . "\n\t" 
+			  . '<div>latitude: <span itemprop="latitude">' . $lat
+              . '</span></div>' . "\n\t" 
+		      . '<div>longitude: <span itemprop="longitude">' . $lon . '</span></div></div>' . $endln;
 $poidescriptions = getDescriptions($poi);
 $tagsarea = getTags($poi);
 $placesarea = getRelatedPlaces($poi);
@@ -91,15 +95,9 @@ echo '  </div>' . $endln;
 echo '  <p>&nbsp;</p>' . $endln;
 
 //// footer stuff
-echo '    <p><!-- end bars --></p>' . $endln;
-echo '    <div id="footer">' . $endln;
-echo '    	<a href="/">Home</a> | <a href="api.html">API</a> | ' . $endln;
-echo '        <a href="faq.html">FAQ</a> | ' . $endln;
-echo '        <a href="contributors.html">Contributors</a> | ' . $endln;
-echo '        <a href="terms.html">Terms</a> | ' . $endln;
-echo '	    <a href="https://lists.opengeospatial.org/mailman/listinfo/openpoidb-announce">Mailing List</a>' . $endln;
-echo '    </div>' . $endln;
-echo '		' . $endln;
+include('footer.php');
+
+//// Flickr photos (via Javascript)
 echo '	<script>';
 // echo '  (function(d, s, id) {' . $endln;
 echo '   displayPics('. $lat . ',' . $lon . '18);' . $endln;
@@ -119,9 +117,15 @@ function getRepresentations($poi) {
 
   $thispoiurl = $baseurl . '/' . $myid;
   $htmldata = '<div id="poiitems" class="poiinfosection">' . $endln;
-  $htmldata .= '<div id="source">' . $endln;
+
+  // $htmldata .= '<div id="source">' . $endln;
   $htmldata .= '<p class="subhead">links</p>' . $endln;
-  $htmldata .= "<table>";
+
+  // place Facebook Like button
+  $htmldata .= '<div class="fb-like" data-href="' . $thispoiurl . '"';
+  $htmldata .= ' data-send="false" data-width="450" data-show-faces="true"></div>';
+
+  $htmldata .= '<div id="links"><table>';
   
   $tdstyle = '<td style="text-align:right;padding-right:4px">';
   $htmldata .= "<tr>" . $tdstyle . "permalink:</td>";
@@ -129,12 +133,8 @@ function getRepresentations($poi) {
   $htmldata .= "<tr>" . $tdstyle . "JSON:</td><td><a href=\"" . $thispoiurl . ".json\" target=\"_blank\">" . $myid . ".json</a></td></tr>\n";
   $htmldata .= "<tr>" . $tdstyle . "XML:</td><td><a href=\"" . $thispoiurl . ".xml\" target=\"_blank\">" . $myid . ".xml</a></td></tr>\n";
   $htmldata .= "<tr>" . $tdstyle . "HTML:</td><td><a href=\"" . $thispoiurl . "\" target=\"_blank\">" . $myid . ".html</a></td></tr>\n";
-  $htmldata .= "</table>";
-  $htmldata  .= '    <meta itemprop="map" content="http://' . $_SERVER['HTTP_HOST'] . '/map.html?id=' . $myid . '"/>' . $endln;
-
-  // place Facebook Like button
-  $htmldata .= '<div class="fb-like" data-href="' . $thispoiurl . '"';
-  $htmldata .= ' data-send="false" data-width="450" data-show-faces="true"></div>';
+  $htmldata .= "</table></div>\n";
+  $htmldata  .= '<meta itemprop="map" content="http://' . $_SERVER['HTTP_HOST'] . '/map.html?id=' . $myid . '"/>' . $endln;
   
   // license
   $license = $poi->getLicense();
@@ -146,7 +146,7 @@ function getRepresentations($poi) {
     $htmldata .= '</div>' . $endln;
   }
 
-  $htmldata .= '</div>' . $endln;
+  // $htmldata .= '</div>' . $endln;
   $htmldata .= '</div>' . $endln;
   return $htmldata;
 }
@@ -244,15 +244,20 @@ function getRelatedPlaces($poi) {
       else if ( strpos($relplacename, 'futouring') !== FALSE ) $relplacename = 'futouring';
       else if ( strpos($relplacename, 'freebase') !== FALSE ) $relplacename = 'freebase';
 
+	  $hd .= $relplacename;
+      if ( !empty($href) ) $hd .= "</a>";
+      $hd .= "</td>\n"; // end related place name
+
       // add some context to the name
+	  $hd .= "<td class=\"relatedicon\">";
       $term = $link->getTerm();
+
       // if it's a related resource, show the related icon
       if ( $term == 'related') {
-        $relplacename .= ' ' . $poilinks_related;
+        $hd .= $poilinks_related;
       } else {
-        $relplacename .= ' ' . $term;
+        $hd .= $term;
       }
-      $hd .= $relplacename;
       
       // if this is an image, show a preview
       $imagetypes = array('image/jpeg', 'jpeg', 'image/png', 'png', 'image/gif', 'gif');
@@ -260,9 +265,7 @@ function getRelatedPlaces($poi) {
       if ( !empty($rtype) && (array_search($rtype, $imagetypes) !== FALSE ) ) {
         $hd .= '<img itemprop="photo" src="' . $href . '" width="32">' . $endln;
       }
-
-      if ( !empty($href) ) $hd .= "</a>";
-      $hd .= "</td>"; // end related place name
+      $hd .= "</td>\n"; // end related place icon or preview image
 
       $hd .= "<td class=\"placeicons\">"; // begin icons showing what info the POI source provides
       $icondata = "&nbsp;";

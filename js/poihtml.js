@@ -46,7 +46,7 @@ function appendFlickr(data) {
     purls = buildFlickrURL('s', p.id, p.server, p.farm, p.secret);
     h += "<div class=\"pic\"><a href=\""+purl+"\" target=\"_blank\">";
     h += "<img src=\""+purls+"\" alt=\"" + p.title + "\"></a>";
-    h += "<div id=\"piccaption\">" + p.title + "</div></div>";
+    h += "<div class=\"piccaption\">" + p.title + "</div></div>";
   }
 
   $("#pictures").html(h);  

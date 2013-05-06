@@ -1,31 +1,56 @@
-/* @override http://localhost/openpoi/www/css/style.css */
+/* @override 
+	http://localhost/openpoi/www/css/style.css
+	http://poi.local/css/style.css
+*/
 
 /**
  * CSS Reset
  * From Blueprint reset.css
  * http://blueprintcss.googlecode.com
  */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+/*html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
 body {line-height:1.5;}
 table {border-collapse:separate;border-spacing:0;}
 caption, th, td {text-align:left;font-weight:normal;}
 table, td, th {vertical-align:middle;}
 blockquote:before, blockquote:after, q:before, q:after {content:"";}
 blockquote, q {quotes:"" "";}
-a img {border:none;}
+a img {border:none;}*/
 
 /**
  * Basic Typography
  */
 body {
-    font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif; 
-    /*font-family: 'Lustria', serif;*/
+    font-family: MuseoSans-500,'Doppio One',sans-serif;
     font-style: normal;
-    font-size: 80%;
+    /*font-size: 80%;*/
     color: #222;
     background: #fff;
-    margin: 1em 1.5em;
+    /*margin: 1em 1.5em;*/
 }
+
+#banner {
+  font-family: MuseoSans-500, 'Doppio One', sans-serif;
+  color: #fff;
+  background-color: #003a6b;
+  width: 100%;
+  line-height: 1.1;
+}
+
+#title {
+  font-size: 30pt;
+  padding-left: 8px;
+}
+
+#sub {
+  font-size: 10pt;
+  display: block;
+  position: relative;
+  left: 54px;
+  top: -8px;
+  width: 248px;
+}
+
 @media only screen and (max-width: 640px) {
 	body {
       margin: 0px;
@@ -48,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent;
     margin: 0;
     padding-top: 0.5em;
+    font-weight: normal;
 }
 h1 {
     font-size: 130%;
@@ -62,7 +88,7 @@ h2 {
 h3 {
     font-size: 110%;
     margin-bottom: 0.5em;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 h4 {
     font-size: 100%;
@@ -70,5 +96,16 @@ h4 {
 }
 
 #login {
+  float: right;
+}
+
+.footer {
+  font-size: 90%;
+  background-color: #acc8e0;
+  padding: 4px;
+  min-height: 1em;
+  /*text-align: center;*/
+}
+#copyright {
   float: right;
 }

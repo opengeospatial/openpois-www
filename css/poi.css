@@ -1,73 +1,9 @@
 /* @override http://poi.local/css/poi.css */
 
-body {
-  background: #003a6b;
-  /*width: 600px;*/
-}
-
-#banner, #search {
-  font-family: MuseoSans-500, 'Doppio One', sans-serif;
-  color: #fff;
-  background-color: #003a6b;
-  width: 100%;
-  line-height: 1.1;
-}
-
-#title {
-  font-size: 30pt;
-  padding-left: 8px;
-}
-
-#sub {
-  font-size: 10pt;
-  display: block;
-  position: relative;
-  left: 54px;
-  top: -8px;
-  width: 248px;
-}
-
-#search {
-  padding: 0px;
-}
-
-#sidebar {
-  /*width: 320px;*/
-  margin: 0px 0px 4px;
-  background-color: #003a6b;
-  padding: 2px 0 2px 2px;
-}
-
-@media only screen and (max-width: 500px) {
-	body {
-	  width: 320px;
-	}
-	#sidebar {
-	  width: 296px;
-	  margin: 0px 0px 4px;
-	  background-color: #003a6b;
-	  padding: 2px 0 2px 2px;
-	}
-}
-
-#data {
-  font-size: 100%;
+/*#data {
   background-color: #efebe2;
   border: 8px solid #fff;
-}
-
-.subhead {
-  /*font-family: 'Share', cursive;*/
-/*  font-family: 'Doppio One', sans-serif;*/
-  border-top: 1px dotted #797979;
-  border-bottom: 1px dotted #797979;
-  text-align: left;
-  text-shadow: 1px 1px 0 white;
-  padding-right: 8px;
-  background-color: #e8ddbd; /*#efebe2;*/
-  text-shadow: white 1px 1px 0px;
-  margin-bottom: 4px;
-}
+}*/
 
 .headline {
   font-size: 135%;
@@ -75,6 +11,19 @@ body {
 /*  border: 2px dotted #797979;*/
   background-color: #fff; /*#f7ecc9;*/
   text-shadow: 1px 1px 0 #ccc;
+  padding-bottom: 4px;
+  padding-top: 8px;
+}
+
+.subhead {
+  border-top: 1px dotted #797979;
+  border-bottom: 1px dotted #797979;
+  text-shadow: 1px 1px 0 white;
+  /*padding-right: 8px;*/
+  background-color: #e8ddbd; /*#efebe2;*/
+  text-shadow: white 1px 1px 0px;
+  margin-top: 0;
+  font-size: 120%;
 }
 
 .poiinfosection {
@@ -83,6 +32,7 @@ body {
   vertical-align: top;
   background-color: #efebe2;
   text-indent: 8px;
+  padding-bottom: 8px;
 }
 
 #poiitems {
@@ -127,6 +77,10 @@ body {
   table-layout: fixed;
   /*margin: 4px;*/
 }
+.relatedicon {
+  width: 32px;
+  color: #003A6B;
+}
 #relatedplaces .place {
   vertical-align: top;
   text-align: right;
@@ -138,24 +92,35 @@ body {
 }
 #relatedplaces img {
   padding-left: 2px;
+  background-color: #acc8e0;
 }
 
 /*
  * Flickr photos
  */
-#pictures {
-  /*background-color: #444;*/
-  text-align: center;
-}
 .pic {
+  text-indent: 0px;
   margin: 6px 6px 6px 0;
   background-color: #333;
   padding: 4px 4px 4px;
   width: 75px;
   display: inline-block;
 }
-#piccaption {
+.piccaption {
   color: #ddd;
   font-size: 8pt;
-  /*font-weight: bold;*/
+}
+
+#links {
+  display: block;
+}
+.fb-like {
+	display: block;
+  float: right;
+}
+
+#signininfo {
+  font-size: 85%;
+  font-style: italic;
+  text-align: center;
 }

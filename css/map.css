@@ -12,6 +12,17 @@
 }
 
 @media only screen and (max-width: 640px) {
+	body {
+	  width: 320px;
+	}
+
+	#sidebar {
+	  width: 296px;
+	  margin: 0px 0px 4px;
+	  background-color: #003a6b;
+	  padding: 2px 0 2px 2px;
+	}
+
 	.smallmap {
 	    /*width: 320px;*/
 	    height: 212px;
@@ -21,6 +32,21 @@
 	    top: 82px;
 	    left: 292px; // 420px;*/
 	}
+}
+
+#sidebar {
+  /*width: 320px;*/
+  margin: 0px 0px 4px;
+  background-color: #003a6b;
+  padding: 2px 0 2px 2px;
+}
+
+#search {
+  color: #fff;
+  background-color: #003a6b;
+  width: 100%;
+  line-height: 1.1;
+  padding: 0px;
 }
 
 .popup {
