@@ -60,7 +60,8 @@ echo $html; // END intro
 //// section variables
 // $messages = '<div id="messages"></div>' . $endln;
 $poiname = '<div id="poiname">' . $endln 
-			. '<div class="headline">OpenPOIs data for <span itemprop="name">' . $name . '</span></div>' . $endln 
+			. '<div class="headline"><span class="dimmed">OpenPOIs information for</span>' 
+			. ' <span itemprop="name">' . $name . '</span></div>' . $endln 
 //			. '<div id="signininfo">Sign in above to add names, descriptions, categories and links</div>' . $endln 
 			. '</div>' . $endln;
 $poiitems = getRepresentations($poi);
@@ -237,12 +238,14 @@ function getRelatedPlaces($poi) {
         }
       }
 
-      $relplacename = strtolower($relplacename);
-      if ( strpos($relplacename, 'openstreetmap') !== FALSE ) $relplacename = 'openstreetmap';
-      else if ( strpos($relplacename, 'geonames') !== FALSE ) $relplacename = 'geonames';
-      else if ( strpos($relplacename, 'dbpedia') !== FALSE ) $relplacename = 'dbpedia';
-      else if ( strpos($relplacename, 'futouring') !== FALSE ) $relplacename = 'futouring';
-      else if ( strpos($relplacename, 'freebase') !== FALSE ) $relplacename = 'freebase';
+	  //// TESTING SHOWING URL INSTEAD OF A SHORT 'PROVIDER' NAME
+	  $relplacename = $href;
+      // $relplacename = strtolower($relplacename);
+      // if ( strpos($relplacename, 'openstreetmap') !== FALSE ) $relplacename = 'openstreetmap';
+      // else if ( strpos($relplacename, 'geonames') !== FALSE ) $relplacename = 'geonames';
+      // else if ( strpos($relplacename, 'dbpedia') !== FALSE ) $relplacename = 'dbpedia';
+      // else if ( strpos($relplacename, 'futouring') !== FALSE ) $relplacename = 'futouring';
+      // else if ( strpos($relplacename, 'freebase') !== FALSE ) $relplacename = 'freebase';
 
 	  $hd .= $relplacename;
       if ( !empty($href) ) $hd .= "</a>";

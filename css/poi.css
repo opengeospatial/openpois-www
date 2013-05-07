@@ -26,6 +26,11 @@
   font-size: 120%;
 }
 
+.dimmed {
+  color: #bbb;
+  text-shadow: none;
+}
+
 .poiinfosection {
   /*margin-left: 8px;
   margin-right: 16px;*/
