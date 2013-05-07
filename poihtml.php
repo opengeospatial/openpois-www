@@ -52,7 +52,7 @@ include_once('loginout.php');
 $thispoiurl = $baseurl . '/' . $myid;
 $html .= getButton($thispoiurl);
 
-$html .= '		<span id="title">OpenPOIs</span>' . $endln;
+$html .= '		<span id="title"></span>' . $endln;
 $html .= '		<span id="sub">the web of location data</span>' . $endln;
 $html .= '	</div>' . $endln;
 echo $html; // END intro
@@ -78,7 +78,7 @@ $pictures = '		<div id="pictures" class="poiinfosection"></div>' . $endln;
 
 //// print it all out
 echo '	<div id="data" itemscope itemtype="http://schema.org/Place">' . $endln;
-echo $messages;
+// echo $messages;
 echo $poiname;
 echo $poiitems;
 echo $poilocation;
