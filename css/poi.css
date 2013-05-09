@@ -118,6 +118,7 @@
 #links {
   display: block;
 }
+
 .fb-like {
 	display: block;
   float: right;
@@ -127,4 +128,9 @@
   font-size: 85%;
   font-style: italic;
   text-align: center;
+}
+
+.add-poi-info {
+  color: #003A6B;
+  cursor: pointer;
 }
