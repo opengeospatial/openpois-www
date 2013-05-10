@@ -36,14 +36,14 @@ $html .= '  </head>' . $endln;
 $html .= '<body>' . $endln;
 
 //// Facebook stuff
-$html .= '  <div id="fb-root"></div>';
+$html .= '  <div id="fb-root"></div>' . $endln;
 $html .= '  <script>(function(d, s, id) {';
 $html .= '    var js, fjs = d.getElementsByTagName(s)[0];';
 $html .= '    if (d.getElementById(id)) return;';
 $html .= '    js = d.createElement(s); js.id = id;';
 $html .= '    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=473919912642476";';
 $html .= '    fjs.parentNode.insertBefore(js, fjs);';
-$html .= '  }(document, \'script\', \'facebook-jssdk\'));</script>';
+$html .= '  }(document, \'script\', \'facebook-jssdk\'));</script>' . $endln;
 
 $html .= '	<div id="banner">' . $endln;
 
@@ -60,8 +60,12 @@ echo $html; // END intro
 //// section variables
 // $messages = '<div id="messages"></div>' . $endln;
 $poiname = '<div id="poiname">' . $endln 
-			. '<div class="headline"><span class="dimmed">OpenPOIs information for</span>' 
-			. ' <span itemprop="name">' . $name . '</span></div>' . $endln 
+			. '<div class="headline">' 
+			. '<span class="dimmed">OpenPOIs information for</span>' 
+			. ' <span itemprop="name">' . $name . '</span>' . $endln 
+			. '<a itemprop="map" target="mapwin" href="http://' . $_SERVER['HTTP_HOST'] . '/map.html?id=' 
+			. $myid . '" title="Map of ' . $name . '">' . '<img src="/graphics/tinymap.png" /></a>' . $endln 
+			. '</div>' . $endln 
 //			. '<div id="signininfo">Sign in above to add names, descriptions, categories and links</div>' . $endln 
 			. '</div>' . $endln;
 $poiitems = getRepresentations($poi);
@@ -155,14 +159,17 @@ function getRepresentations($poi) {
 function getDescriptions($poi) {
   global $endln;
   $htmldata = '<div id="poidescriptions" class="poiinfosection">' . $endln;
+  $htmldata .= '<div class="subhead">description</div>' . $endln;
   
   $descriptions = $poi->descriptions;
   if ( !empty($descriptions) ) {
-    $htmldata .= '<div class="subhead">description</div>' . $endln;
     foreach ($descriptions as $d) {
       $htmldata .= '<p itemprop="description">' . $d->getValue() . '</p>' . $endln;
     }
+  } else {
+	$htmldata .= '<p itemprop="description">no description</p>' . $endln;
   }
+  
   $htmldata .= '</div>' . $endln;
   return $htmldata;
 }
@@ -175,20 +182,16 @@ function getTags($poi) {
 
   foreach ($poi->categories as $c) {
     $htmldata .= "<span class=\"tag\">";
-    $htmldata .= "<span class=\"term\">";
     $s = $c->getScheme();
-    if ( !empty($s) ) $htmldata .= '<a href="' . $s . '" target="_blank">';
-
-    $htmldata .= $c->getTerm();
-    if ( !empty($s) ) $htmldata .= "</a>";
-
-    $htmldata .= "</span>"; // end term
-    $htmldata .= "<span class=\"value\">";
     $v = $c->getValue();
-    $i = $c->getId();
-    if ( !empty($v) ) $htmldata .= $v;
-    else if ( !empty($i) ) $htmldata .= $i;
-    else $htmldata .= 'tag';
+
+    $htmldata .= "<span class=\"value\">";
+    if ( !empty($s) ) $htmldata .= '<a href="' . $s . '" target="_blank">';
+	if ( empty($v) ) // don't put in term if no value b/c we'll put it in the value section
+      $htmldata .= $c->getTerm();
+  	else $htmldata .= $v;
+	if ( !empty($s) ) $htmldata .= "</a>";
+
     $htmldata .= '</span>'; // end value
     $htmldata .= '</span>' . $endln; // end tag
   }

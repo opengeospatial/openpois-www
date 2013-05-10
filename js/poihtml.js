@@ -1,3 +1,45 @@
+function addTag() {
+  id = $('a[itemprop="url"]').html();
+  req = "id="+id;
+
+  term = $('#category-term').val();
+  if (!term) {
+    alert('Term is required');
+    return false;
+  }
+  req += "&term="+term;
+  
+  scheme = $('#category-scheme').val();
+  if ( scheme ) {
+    if ( /^http:\/\//i.test(scheme) ||/^https:\/\//i.test(scheme) ) {
+      req += "&scheme="+scheme;
+    } else {
+      alert("Scheme must be a URI starting with http:// or https://");
+      return false;
+    }
+  }
+
+  value = $('#category-value').val();
+  if (value) {
+    req += "&value="+value;
+  }
+
+  // Now submit
+  req = "type=category&" + req;
+  var f = $.ajax({
+      type: "GET", 
+      url: "http://api.flickr.com/services/rest", 
+      data: req, 
+      dataType: "json", 
+      success: function(data, textStatus, jqXHR) {
+        appendFlickr(data); // ajax request is for JSON format, so data is auto-converted to an object
+      }, 
+      fail: function(data, textStatus, jqXHR) {
+        alert("flickr search failed: "+textStatus);
+      }
+  });
+}
+
 function displayPOI(map, zoomtopoi) {
   
 }
