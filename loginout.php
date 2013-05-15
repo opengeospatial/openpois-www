@@ -1,15 +1,15 @@
 <?php
 session_start();
+$loggedin = TRUE;
+// if ( empty($_COOKIE["uid"]) ) $loggedin = FALSE;
+if ( empty($_SESSION['uid']) ) $loggedin = FALSE;
 
 function getButton($referer) {
+	global $loggedin;
 	$loginurl = 'http://' . $_SERVER['HTTP_HOST'] . '/login/index.php';
 	$loginurl .= '?referer=' . $referer;
-	$loggedin = TRUE;
 	$info = 'Sign in to add names, descriptions, categories and links';
 	
-	// if ( empty($_COOKIE["uid"]) ) $loggedin = FALSE;
-	if ( empty($_SESSION['uid']) ) $loggedin = FALSE;
-
 	$h =  "<div id=\"login\">\n";
 	$h .= $_SESSION['uid'] . ' ';
 	$h .= "<button type=\"button\" id=\"loginoutbutton\" class=\"ink-button info\" tooltip=\"$info\"";

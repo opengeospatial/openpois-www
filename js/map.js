@@ -187,13 +187,14 @@ function initmap() {
   }
 
   if ( !id ) {
-    navigator.geolocation.getCurrentPosition(function(position) {       
-      var lonLat = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude)
-        .transform(
-          new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+    navigator.geolocation.getCurrentPosition(function(position) {  
+      lg = position.coords.longitude;
+      lt = position.coords.latitude;
+      var lonLat = new OpenLayers.LonLat(lg, lt).transform(
+          epsg4326, //transform from WGS 1984
           map.getProjectionObject() //to Spherical Mercator Projection
         );
-
+    
       map.setCenter(lonLat, 15);
     });
   }

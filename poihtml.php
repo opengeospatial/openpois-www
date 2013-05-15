@@ -2,6 +2,7 @@
 $endln = "\n";
 $name = $poi->labels[0]->getValue();
 $myid = $poi->getMyId();
+$signinmessage = ' (sign in to edit)';
 
 $html = '<!DOCTYPE html>' . $endln;
 $html .= '<html xmlns:fb="http://ogp.me/ns/fb#">' . $endln;
@@ -157,10 +158,16 @@ function getRepresentations($poi) {
 }
 
 function getDescriptions($poi) {
-  global $endln;
+  global $endln, $loggedin, $signinmessage;
+
   $htmldata = '<div id="poidescriptions" class="poiinfosection">' . $endln;
   // $htmldata .= '<div class="subhead">description</div>' . $endln;
-	$htmldata .= '<div id="descriptions" class="subhead">descriptions<a href="#" onclick="$(\'#add-description\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a></div>' . $endln;
+	$htmldata .= '<div id="descriptions" class="subhead">descriptions';
+	if ( $loggedin) 
+		$htmldata .= '<a href="#" onclick="$(\'#add-description\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a>';
+	else 
+		$htmldata .= $signinmessage;
+	$htmldata .= '</div>' . $endln;
 	$htmldata .= '<div id="add-description" style="display:none">' . $endln
 		. '<div id="description-form" style="overflow: auto; width: 100%">' . $endln
 		. '	<div style="float:left">' . $endln
@@ -188,11 +195,16 @@ function getDescriptions($poi) {
 }
 
 function getTags($poi) {
-  global $endln;
+  global $endln, $loggedin, $signinmessage;
 
   $htmldata = '<div id="tagsarea" class="poiinfosection">' . $endln;
   // $htmldata .= '<p id="tags" class="subhead">tags</p>' . $endln;
-	$htmldata .= '<p id="tags" class="subhead">tags<a href="#" onclick="$(\'#add-tag\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a></p>' . $endln;
+	$htmldata .= '<p id="tags" class="subhead">tags';
+	if ( $loggedin) 
+		$htmldata .= '<a href="#" onclick="$(\'#add-tag\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a>';
+	else 
+		$htmldata .= $signinmessage;
+	$htmldata .= '</p>' . $endln;
 	$htmldata .= '<div id="add-tag" style="display:none">' . $endln
 		. '<div id="tag-form" style="overflow: auto; width: 100%">' . $endln
 		. '	<div style="float:left">' . $endln
