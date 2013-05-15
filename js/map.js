@@ -92,22 +92,6 @@ function showPopUp(data, textStatus, jqXHR) {
   } catch (e) {
     alert(data);
   }
-
- // var latlngStr = '(' + e.lonlat.lat + ', ' + e.lonlat.lon + ')';
- // var BBOX = map.getBounds()._southWest.lng+","+map.getBounds()._southWest.lat+","+map.getBounds()._northEast.lng+","+map.getBounds()._northEast.lat;
- // var WIDTH = map.getSize().x;
- // var HEIGHT = map.getSize().y;
- // var X = map.layerPointToContainerPoint(e.layerPoint).x;
- // var Y = map.layerPointToContainerPoint(e.layerPoint).y;
- // var URL = ogcurl +  '?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&' + 
- //    'LAYERS=minipoi&QUERY_LAYERS=minipoi&STYLES=&BBOX=' + BBOX + 
- //  '&FEATURE_COUNT=1&HEIGHT='+HEIGHT + '&WIDTH='+WIDTH + 
- //  '&FORMAT=image%2Fpng&INFO_FORMAT=text%2Fhtml&SRS=EPSG%3A4326&X='+X+'&Y='+Y + 
- //  '&buffer=25';
- // //alert(URL);
- // popup.setLatLng(e.latlng);
- // popup.setContent("<iframe src='"+URL+"' width='300' height='100' frameborder='0'><p>Your browser does not support iframes.</p></iframe>");
-  // map.openPopup(popup);
 }
 
 function initmap() {
@@ -202,15 +186,17 @@ function initmap() {
     handleMapId(id);
   }
 
-  navigator.geolocation.getCurrentPosition(function(position) {       
-    var lonLat = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude)
-      .transform(
-        new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
-        map.getProjectionObject() //to Spherical Mercator Projection
-      );
+  if ( !id ) {
+    navigator.geolocation.getCurrentPosition(function(position) {       
+      var lonLat = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude)
+        .transform(
+          new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+          map.getProjectionObject() //to Spherical Mercator Projection
+        );
 
-    map.setCenter(lonLat, 15);
-  });
+      map.setCenter(lonLat, 15);
+    });
+  }
 }
 
 function getUrlVars() {
