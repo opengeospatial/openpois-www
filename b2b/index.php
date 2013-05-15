@@ -3,12 +3,8 @@
 	<title>OpenPOIs Repository Business Listing Submission</title>
 </head>
 <body>
-<?php
-	//// Authentication 
-	include_once('../loginout.php');
-	echo ( getButton('http://' . $_SERVER['HTTP_HOST'] . '/b2b/') );
-	?>
 	<div id="banner">
+		<?php include_once('../loginout.php'); echo ( getButton('http://' . $_SERVER['HTTP_HOST'] . '/b2b/') );?>
 		<span id="title"></span>
 		<span id="sub">the web of location data</span>
 	</div>
