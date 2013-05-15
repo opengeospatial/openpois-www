@@ -20,18 +20,19 @@ function run() {
         // Authentication failed; display the error message.
         $msg = "OpenID authentication failed: " . $response->message;
     } else if ($response->status == Auth_OpenID_SUCCESS) {
-        // This means the authentication succeeded; extract the
-        // identity URL and Simple Registration data (if it was
-        // returned).
-        $openid = $response->getDisplayIdentifier();
-		setcookie("uid", $openid, 0, '/');
+       // This means the authentication succeeded; extract the
+       // identity URL and Simple Registration data (if it was
+       // returned).
+       $openid = $response->getDisplayIdentifier();
+			$_SESSION['uid'] = $openid;
+			// setcookie("uid", $openid, 0, '/');
 
-		if ( !empty($_SESSION['loginreferer']) ) {
-			$lf = $_SESSION['loginreferer'];
-			unset($_SESSION['loginreferer']);
-			header('Location:' . $lf);
-		} else {
-			header('Location:/');
+			if ( !empty($_SESSION['loginreferer']) ) {
+				$lf = $_SESSION['loginreferer'];
+				unset($_SESSION['loginreferer']);
+				header('Location:' . $lf);
+			} else {
+				header('Location:/');
 		}
     // 
     //     $esc_identity = escape($openid);

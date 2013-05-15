@@ -4,11 +4,15 @@ if ( !empty($_SERVER['HTTP_REFERER']) )
 	$_SESSION['loginreferer'] = $_SERVER['HTTP_REFERER'];
 
 include_once('../header.php');
+include_once('../loginout.php');
 ?>
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
 	<title>OpenPOIs Registry Login</title>
 </head>
 <body>
 	<div id="banner">
+		<?php echo (getButton('/login/')); ?>
 		<span id="title"></span>
 		<span id="sub">the web of location data</span>
 	</div>

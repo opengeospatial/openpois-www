@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	setcookie("uid", FALSE, 0, '/');
+	// setcookie("uid", FALSE, 0, '/');
+        unset( $_SESSION['uid'] );
 	
 	$lf = '/';
 

@@ -10,6 +10,7 @@
 	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">
 	<link type="text/css" rel="stylesheet" href="/css/ink/css/ink.css">
 	<link type="text/css" rel="stylesheet" href="/css/style.css">
+	<script src="/js/jquery-1.9.1.min.js"></script>
 	<!--[if IE]>
 	<link rel="stylesheet" href="css/ink/css/ink-ie.css" type="text/css" media="screen" title="none" charset="utf-8">
   	<![endif]-->
