@@ -30,18 +30,9 @@ include_once('../loginout.php');
 		      xfbml      : true  // parse XFBML
 		    });
 
-		    // Additional init code here
-			FB.getLoginStatus(function(response) {
-			  if (response.status === 'connected') {
-			    // connected
-			  } else if (response.status === 'not_authorized') {
-			    // not_authorized
-			  } else {
-			    // not_logged_in
-				FBlogin();
-			  }
-			 });
-		
+    		// Additional init code here
+				var loggedin = false;
+				getLoginStatus();
 		
 		  };
 
