@@ -159,15 +159,28 @@ function getRepresentations($poi) {
 function getDescriptions($poi) {
   global $endln;
   $htmldata = '<div id="poidescriptions" class="poiinfosection">' . $endln;
-  $htmldata .= '<div class="subhead">description</div>' . $endln;
+  // $htmldata .= '<div class="subhead">description</div>' . $endln;
+	$htmldata .= '<div id="descriptions" class="subhead">descriptions<a href="#" onclick="$(\'#add-description\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a></div>' . $endln;
+	$htmldata .= '<div id="add-description" style="display:none">' . $endln
+		. '<div id="description-form" style="overflow: auto; width: 100%">' . $endln
+		. '	<div style="float:left">' . $endln
+		// . '		<div>description</div>' . $endln
+		. '		<div><textarea id="description-value" cols="64" rows="3"></textarea></div>' . $endln
+		. '	</div>' . $endln
+		. '	<div style="float:left">' . $endln
+		. '		<button id="add-description-button" class="ink-button info" onclick="addDescription();">Add</button>' . $endln
+		. '	</div>' . $endln
+		. '</div>' . $endln
+		. '<hr/>' . $endln
+		. '</div>' . $endln;	
   
   $descriptions = $poi->descriptions;
   if ( !empty($descriptions) ) {
     foreach ($descriptions as $d) {
-      $htmldata .= '<p itemprop="description">' . $d->getValue() . '</p>' . $endln;
+      $htmldata .= '<p class="description" itemprop="description">' . $d->getValue() . '</p>' . $endln;
     }
   } else {
-	$htmldata .= '<p itemprop="description">no description</p>' . $endln;
+	$htmldata .= '<p class="description" itemprop="description">no description</p>' . $endln;
   }
   
   $htmldata .= '</div>' . $endln;
@@ -178,7 +191,28 @@ function getTags($poi) {
   global $endln;
 
   $htmldata = '<div id="tagsarea" class="poiinfosection">' . $endln;
-  $htmldata .= '<p id="tags" class="subhead">tags</p>' . $endln;
+  // $htmldata .= '<p id="tags" class="subhead">tags</p>' . $endln;
+	$htmldata .= '<p id="tags" class="subhead">tags<a href="#" onclick="$(\'#add-tag\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a></p>' . $endln;
+	$htmldata .= '<div id="add-tag" style="display:none">' . $endln
+		. '<div id="tag-form" style="overflow: auto; width: 100%">' . $endln
+		. '	<div style="float:left">' . $endln
+		. '		<div>Term (tag)</div>' . $endln
+		. '		<div><input type="text" id="category-term"></div>' . $endln
+		. '	</div>' . $endln
+		. '	<div style="float:left">' . $endln
+		. '		<div>Value (optional name for the tag/term)</div>' . $endln
+		. '		<div><input type="text" id="category-value" size="36"></input></div>' . $endln
+		. '	</div>' . $endln
+		. '	<div style="float:left">' . $endln
+		. '		<div>Scheme (optional URI)</div>' . $endln
+		. '		<div><input type="text" id="category-scheme" size="36"></div>' . $endln
+		. '	</div>' . $endln
+		. '	<div style="float:left">' . $endln
+		. '		<button id="add-tag-button" class="ink-button info" onclick="addTag();">Add</button>' . $endln
+		. '	</div>' . $endln
+		. '</div>' . $endln
+		. '<hr/>' . $endln
+		. '</div>' . $endln;	
 
   foreach ($poi->categories as $c) {
     $htmldata .= "<span class=\"tag\">";

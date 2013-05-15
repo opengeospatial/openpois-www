@@ -1,6 +1,41 @@
+function addDescription() {
+  id = $('a[itemprop="url"]').html();
+  req = "&id="+id;
+  
+  value = $('#description-value').val();
+  if (!value) {
+    alert('Description is required');
+    return false;
+  }
+  req += "&value="+value;
+
+  // disable submit button
+  $('#add-description-button').prop('disabled', true);
+  
+  // Now submit
+  req = "type=DESCRIPTION" + req;
+  var f = $.ajax({
+      type: "GET", 
+      contentType: 'application/json', 
+      url: "/poiupdate.php", 
+      data: req, 
+      dataType: "json"
+  });
+  
+  f.done( function(data, textStatus, jqXHR) {
+    window.location.reload(true);
+  });
+  
+  f.fail( function(jqXHR, textStatus, errorThrown) {
+    response = $.parseJSON(jqXHR.responseText);
+    errmsg = response.err.message;
+    alert("Error adding tag: "+errmsg);
+  });
+}
+
 function addTag() {
   id = $('a[itemprop="url"]').html();
-  req = "id="+id;
+  req = "&id="+id;
 
   term = $('#category-term').val();
   if (!term) {
@@ -17,6 +52,7 @@ function addTag() {
       alert("Scheme must be a URI starting with http:// or https://");
       return false;
     }
+    req += "&scheme="+scheme;
   }
 
   value = $('#category-value').val();
@@ -24,19 +60,29 @@ function addTag() {
     req += "&value="+value;
   }
 
+  // disable submit button
+  $('#add-tag-button').prop('disabled', true);
+  
   // Now submit
-  req = "type=category&" + req;
+  req = "type=CATEGORY" + req;
   var f = $.ajax({
       type: "GET", 
-      url: "http://api.flickr.com/services/rest", 
+      contentType: 'application/json', 
+      url: "/poiupdate.php", 
       data: req, 
-      dataType: "json", 
-      success: function(data, textStatus, jqXHR) {
-        appendFlickr(data); // ajax request is for JSON format, so data is auto-converted to an object
-      }, 
-      fail: function(data, textStatus, jqXHR) {
-        alert("flickr search failed: "+textStatus);
-      }
+      dataType: "json"
+  });
+  
+  f.done( function(data, textStatus, jqXHR) {
+    window.location.reload(true);
+    // response = $.parseJSON(jqXHR.responseText);
+    // $('.tag:last').after('<span class="tag"><h1>HI</h1></span>');
+  });
+  
+  f.fail( function(jqXHR, textStatus, errorThrown) {
+    response = $.parseJSON(jqXHR.responseText);
+    errmsg = response.err.message;
+    alert("Error adding tag: "+errmsg);
   });
 }
 

@@ -8,12 +8,27 @@ $formatteddata = '';
 
 foreach ($_POST as $key => $val) {
 	$data .= "$key: $val\n";
-	$formatteddata .= "<p>$key: $val</p>\n";
+	$formatteddata .= "<p>$key: $val</p>\r\n";
 }
 
 $fn = getcwd() . "/submissions/" . $date . ".txt";
-file_put_contents( $fn, $data );
+$ok = file_put_contents( $fn, $data );
+if ( $ok === FALSE ) {
+	$data .= "COULDN'T SUBMIT THE LISTING!!\r\n";
+	$formatteddata .= "COULDN'T SUBMIT THE LISTING!!\r\n";
+}
 
+//// email it
+// To send HTML mail, the Content-type header must be set
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+// $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
+
+// Additional headers
+$headers .= "To: <rsingh@opengeospatial.org>\r\n";
+$headers .= "From: OpenPOIs Admin <openpois@opengeospatial.org>\r\n";
+
+// Mail it
+mail('rsingh@opengeospatial.org', 'B2B Submission', $formatteddata, $headers);
 
 ?>
 
