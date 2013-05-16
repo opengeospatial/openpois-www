@@ -43,6 +43,7 @@ function login(response) {
     async: true
   })
   
+  alert('Great!\nYou are now signed in OpenPOIs.');
   if ( getURLParameter('referer') ) {
     window.location.href = getURLParameter('referer');
   } else {
