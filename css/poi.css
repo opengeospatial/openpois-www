@@ -46,7 +46,7 @@
 }
 
 .place {
-  /*font-size: 90%;*/
+  font-size: 90%;
   padding-left: 16px;
   text-indent: -8px;
 }
@@ -85,9 +85,15 @@
   text-align: right;
   padding-right: 4px;
   padding-bottom: 4px;
+  line-height: 1;
+}
+#relatedplaces .relatedicon {
+  text-align: left;
+  line-height: 1;
 }
 #relatedplaces .placeicons {
   text-align: left;
+  line-height: 1;
 }
 #relatedplaces img {
   padding-left: 2px;

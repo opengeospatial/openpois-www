@@ -375,6 +375,7 @@ function getNearbyPlaces($myid, $lat, $lon) {
   for ($i=0; $i<sizeof($poiids); $i++) {
     $id = $poiids[$i];
     $v = empty($poinames[$i]) ? 'no name' : $poinames[$i];
+		if ( $id == $myid ) continue; // don't list this POI
     $hd .= "\t<li><a href=\"" . $id . ".html\">" . $v . "</a></li>\n";
   }
   $hd .= "</ul>\n";
