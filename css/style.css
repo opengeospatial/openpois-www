@@ -1,5 +1,4 @@
 /* @override 
-	http://localhost/openpoi/www/css/style.css
 	http://poi.local/css/style.css
 */
 
@@ -27,6 +26,10 @@ body {
     color: #222;
     background: #fff;
     /*margin: 1em 1.5em;*/
+}
+
+.faded {
+  color: #aaa;
 }
 
 #banner {
@@ -84,7 +87,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .codehl {
   background-color: #FFC;
-  font-size: smaller;
+  display: block;
+  font: smaller "Courier New", Courier, mono;
+  padding: 12px;
 }
 
 #login {

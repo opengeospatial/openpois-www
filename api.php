@@ -21,7 +21,7 @@
     <h3>Request</h3>
     <span class="codehl">http://openpois.ogcnetwork.net/poiquery.php?</span>
     <h3>Parameters</h3>
-    <table border="1" width="80%">
+    <table class="ink-table ink-zebra ink-hover" width="80%">
       <tbody>
         <tr>
           <th width="96" scope="col">parameter</th>
