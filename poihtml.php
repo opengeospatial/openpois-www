@@ -253,7 +253,7 @@ function getRelatedPlaces($poi) {
   global $endln;
   $hd = '<div id="placesarea" class="poiinfosection">' . $endln;
   $hd .= '<p id="places" class="subhead">related resources</p>' . $endln;
-  $hd .= '<table id="relatedplaces" cellpadding="4px" width="100%">' . $endln;
+  $hd .= '<table id="relatedplaces" class="ink-table ink-hover" cellpadding="4px" width="100%">' . $endln;
 
   if ( !empty($poi->links) ) {
     foreach ($poi->links as $link) {
@@ -333,17 +333,20 @@ function getRelatedPlaces($poi) {
       }
       $hd .= "</td>\n"; // end related place icon or preview image
 
-      $hd .= "<td class=\"placeicons\">"; // begin icons showing what info the POI source provides
-      $icondata = "&nbsp;";
-      if ( strpos($relplacename, 'geonames') >= 0 ) $icondata = $poiatts_geonames;
-      else if ( strpos($relplacename, 'openstreetmap') >= 0 ) $icondata = $poiatts_openstreetmap;
-      else if ( strpos($relplacename, 'freebase') >= 0 ) $icondata = $poiatts_freebase;
-      else if ( strpos($relplacename, 'dbpedia') >= 0 ) $icondata = $poiatts_dbpedia;
-      else if ( strpos($relplacename, 'foursquare') >= 0 ) $icondata = $poiatts_foursquare;
-      else if ( strpos($relplacename, 'twitter_place') >= 0 ) $icondata = $poiatts_twitter;
-      else if ( strpos($relplacename, 'facebook') >= 0 ) $icondata = $poiatts_facebook;
-      $hd .= $icondata;
-      $hd .= "</td></tr>\n"; // end icons and related place    
+			//// begin icons showing what info the POI source provides
+      // $hd .= "<td class=\"placeicons\">";
+      // $icondata = "&nbsp;";
+      // if ( strpos($relplacename, 'geonames') >= 0 ) $icondata = $poiatts_geonames;
+      // else if ( strpos($relplacename, 'openstreetmap') >= 0 ) $icondata = $poiatts_openstreetmap;
+      // else if ( strpos($relplacename, 'freebase') >= 0 ) $icondata = $poiatts_freebase;
+      // else if ( strpos($relplacename, 'dbpedia') >= 0 ) $icondata = $poiatts_dbpedia;
+      // else if ( strpos($relplacename, 'foursquare') >= 0 ) $icondata = $poiatts_foursquare;
+      // else if ( strpos($relplacename, 'twitter_place') >= 0 ) $icondata = $poiatts_twitter;
+      // else if ( strpos($relplacename, 'facebook') >= 0 ) $icondata = $poiatts_facebook;
+      // $hd .= $icondata;
+      // $hd .= "</td>\n";
+			
+			$hd .= "</tr>\n"; // end icons and related place    
     }
   }
 
