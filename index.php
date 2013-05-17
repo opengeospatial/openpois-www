@@ -21,10 +21,10 @@
 		<div id="motto">open, collaborative, standardized points of interest for the world</div>
 		<div id="content">
 			<ul>
-				<li>Get data <span class="faded">using the </span><a href="api.php">API</a></li>
-				<li><span class="faded">Explore the </span><a href="map.html">map</a></li>
-				<li>Contribute<span class="faded"> to the cause. Add your own tags and descriptions on any POI listing</span></li>
-				<li><a href="b2b/">Manage your business listing</a><span class="faded"> in one place. Let Google, Yelp, Bing, Facebook, etc. </span>update from a single source</li>
+				<li>Get data <span class="dimmed">using the </span><a href="api.php">API</a></li>
+				<li><span class="dimmed">Explore the </span><a href="map.html">map</a></li>
+				<li>Contribute<span class="dimmed"> to the cause. Add your own tags and descriptions on any POI listing</span></li>
+				<li><a href="b2b/">Manage your business listing</a><span class="dimmed"> in one place. Let Google, Yelp, Bing, Facebook, etc. </span>update from a single source</li>
 			</ul>
 		</div>
 

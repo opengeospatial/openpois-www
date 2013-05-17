@@ -28,10 +28,6 @@ body {
     /*margin: 1em 1.5em;*/
 }
 
-.faded {
-  color: #aaa;
-}
-
 #banner {
   font-family: MuseoSans-500, 'Doppio One', sans-serif;
   color: #fff;
@@ -52,6 +48,11 @@ body {
   left: 54px;
   top: -6px;
   width: 248px;
+}
+
+.dimmed {
+  color: #bbb;
+  text-shadow: none;
 }
 
 @media only screen and (max-width: 640px) {
@@ -103,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 1em;
   /*text-align: center;*/
 }
+
 #copyright {
   float: right;
 }
