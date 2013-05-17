@@ -33,8 +33,12 @@
 			    <input type="text" name="businessname" value="" />
 			  </div>
 			  <div class="control">
+			    <label for="businessweb">Business Home Page</label>
+			    <input type="text" name="businessweb" value="" placeholder="http://www.example.com" />
+			  </div>
+			  <div class="control">
 			    <label for="businessdescription">Business Description</label>
-			    <input type="text" name="businessdescription" value="" />
+			    <input type="text" name="businessdescription" value="" placeholder="Say a little more than what's in the title"/>
 			  </div>
 			  <div class="control">
 			    <label for="businesstype">Business Type</label>
