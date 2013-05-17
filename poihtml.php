@@ -287,8 +287,8 @@ function getRelatedPlaces($poi) {
         }
       }
 
-	  //// TESTING SHOWING URL INSTEAD OF A SHORT 'PROVIDER' NAME
-	  $relplacename = $href;
+	  	//// TESTING SHOWING URL INSTEAD OF A SHORT 'PROVIDER' NAME
+	  	$relplacename = $href;
       // $relplacename = strtolower($relplacename);
       // if ( strpos($relplacename, 'openstreetmap') !== FALSE ) $relplacename = 'openstreetmap';
       // else if ( strpos($relplacename, 'geonames') !== FALSE ) $relplacename = 'geonames';
@@ -296,17 +296,31 @@ function getRelatedPlaces($poi) {
       // else if ( strpos($relplacename, 'futouring') !== FALSE ) $relplacename = 'futouring';
       // else if ( strpos($relplacename, 'freebase') !== FALSE ) $relplacename = 'freebase';
 
-	  $hd .= $relplacename;
+	  	$hd .= $relplacename;
       if ( !empty($href) ) $hd .= "</a>";
       $hd .= "</td>\n"; // end related place name
 
       // add some context to the name
-	  $hd .= "<td class=\"relatedicon\">";
+	  	$hd .= "<td class=\"relatedicon\">";
       $term = $link->getTerm();
 
       // if it's a related resource, show the related icon
       if ( $term == 'related') {
-        $hd .= $poilinks_related;
+	      $linkicon = $poilinks_related;
+ 
+				// unless it's facebook or linkedin, then show their icons
+				$sch = $link->getScheme();
+				if ( !empty($sch) ) {
+					if ( stripos($sch, 'facebook') !== false ) {
+						$linkicon = $poilinks_facebook;
+					} else if ( stripos($sch, 'linkedin') !== false ) {
+						$linkicon = $poilinks_linkedin;
+					} else if ( stripos($sch, 'wikipedia') !== false ) {
+						$linkicon = $poilinks_wikipedia;
+					}
+				}
+        $hd .= $linkicon;
+
       } else {
         $hd .= $term;
       }
