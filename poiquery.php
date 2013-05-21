@@ -353,20 +353,20 @@ function queryByName($pois, $name) {
   return $goodpois;
 }
 
-function sendError($msg, $query='', $format='text/plain') {
+function sendError($msg, $query='', $format='text/plain', $status='400 Bad Request') {
   if ( $format == 'application/xml' ) {
     header("Content-Type: application/xml; charset=utf-8");
-    header("HTTP/1.0 500 Internal Server Error");
+    header("HTTP/1.0 $status");
     echo "<Error>\n\t<msg>$msg</msg>\n\t<query><![CDATA[$query]]></query></Error>\n";
     
   } else if ( $format == 'application/json' ) {
     header("Content-Type: application/json; charset=utf-8");
-    header("HTTP/1.0 500 Internal Server Error");
+    header("HTTP/1.0 $status");
     echo '{"err": {"message": "' . $msg . '", "query": "' . $query . '"}}';
     
   } else {
     header("Content-Type: text/plain; charset=utf-8");
-    header("HTTP/1.0 500 Internal Server Error");
+    header("HTTP/1.0 $status");
     echo "message: $msg\nquery: $query";
   }
   die;

@@ -70,12 +70,7 @@ $poiname = '<div id="poiname">' . $endln
 //			. '<div id="signininfo">Sign in above to add names, descriptions, categories and links</div>' . $endln 
 			. '</div>' . $endln;
 $poiitems = getRepresentations($poi);
-$poilocation = '<div id="poilocation" class="poiinfosection"'
-              . ' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">' . $endln 
-              . '<p class="subhead">location</p>' . "\n\t" 
-			  . '<div>latitude: <span itemprop="latitude">' . $lat
-              . '</span></div>' . "\n\t" 
-		      . '<div>longitude: <span itemprop="longitude">' . $lon . '</span></div></div>' . $endln;
+$poilocation = getLocations();
 $poidescriptions = getDescriptions($poi);
 $tagsarea = getTags($poi);
 $placesarea = getRelatedPlaces($poi);
@@ -87,8 +82,6 @@ echo '	<div id="data" itemscope itemtype="http://schema.org/Place">' . $endln;
 // echo $messages;
 echo $poiname;
 echo $poiitems;
-echo $poilocation;
-//// ADD ADDRESS
 echo $poidescriptions;
 echo '		<div id="tagsandplaces">' . $endln;
 echo $tagsarea;
@@ -97,7 +90,8 @@ echo $nearbyplacesarea;
 //// ADD RELATIONSHIPS
 echo '		</div>' . $endln;
 echo $pictures;
-echo '  </div>' . $endln;
+echo $poilocation;
+echo '  </div>' . $endln; // end http://schema.org/Place
 echo '  <p>&nbsp;</p>' . $endln;
 
 //// footer stuff
@@ -105,17 +99,22 @@ include('footer.php');
 
 //// Flickr photos (via Javascript)
 echo '	<script>';
-// echo '  (function(d, s, id) {' . $endln;
 echo '   displayPics('. $lat . ',' . $lon . '18);' . $endln;
-// echo '	  var js, fjs = d.getElementsByTagName(s)[0];' . $endln;
-// echo '	  if (d.getElementById(id)) return;' . $endln;
-// echo '	  js = d.createElement(s); js.id = id;' . $endln;
-// echo '	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=473919912642476";' . $endln;
-// echo '	  fjs.parentNode.insertBefore(js, fjs);' . $endln;
-// echo '	}(document, \'script\', \'facebook-jssdk\'));' . $endln;
 echo '  </script>' . $endln;
 echo '</body>' . $endln;
 echo '</html>' . $endln;
+
+//// @TODO ADD ADDRESS
+function getLocations() {
+  global $lat, $lon, $endln;
+	$poilocation = '<div id="poilocation" class="poiinfosection"'
+	              . ' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">' . $endln 
+	              . '<p class="subhead">location</p>' . "\n\t" 
+				  			. '<div>latitude: <span itemprop="latitude">' . $lat
+	              . '</span></div>' . "\n\t" 
+			      		. '<div>longitude: <span itemprop="longitude">' . $lon . '</span></div></div>' . $endln;
+	return $poilocation;
+}
 
 function getRepresentations($poi) {
   global $baseurl, $endln;
@@ -130,6 +129,7 @@ function getRepresentations($poi) {
   // place Facebook Like button
   $htmldata .= '<div class="fb-like" data-href="' . $thispoiurl . '"';
   $htmldata .= ' data-send="false" data-width="250" data-show-faces="true"></div>';
+	// end Facebook Like button
 
   $htmldata .= '<div id="links"><table>';
   
@@ -164,7 +164,7 @@ function getDescriptions($poi) {
   // $htmldata .= '<div class="subhead">description</div>' . $endln;
 	$htmldata .= '<div id="descriptions" class="subhead">descriptions';
 	if ( $loggedin) 
-		$htmldata .= '<a href="#" onclick="$(\'#add-description\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a>';
+		$htmldata .= '<a href="#" onclick="$(\'#add-description\').toggle();return false;"><i class="icon-pencil add-poi-info"></i></a>';
 	else 
 		$htmldata .= $signinmessage;
 	$htmldata .= '</div>' . $endln;
@@ -201,7 +201,7 @@ function getTags($poi) {
   // $htmldata .= '<p id="tags" class="subhead">tags</p>' . $endln;
 	$htmldata .= '<p id="tags" class="subhead">tags';
 	if ( $loggedin) 
-		$htmldata .= '<a href="#" onclick="$(\'#add-tag\').toggle();return false;"><i class="icon-plus-sign add-poi-info"></i></a>';
+		$htmldata .= '<a href="#" onclick="$(\'#add-tag\').toggle();return false;"><i class="icon-pencil add-poi-info"></i></a>';
 	else 
 		$htmldata .= $signinmessage;
 	$htmldata .= '</p>' . $endln;
@@ -253,11 +253,46 @@ function getRelatedPlaces($poi) {
   global $endln;
   $hd = '<div id="placesarea" class="poiinfosection">' . $endln;
   $hd .= '<p id="places" class="subhead">related resources</p>' . $endln;
-  $hd .= '<table id="relatedplaces" class="ink-table ink-hover" cellpadding="4px" width="100%">' . $endln;
+  $hd .= '<table id="relatedplaces" class="ink-table ink-hover" cellpadding="4px">' . $endln;
 
   if ( !empty($poi->links) ) {
     foreach ($poi->links as $link) {
-      $hd .= '<tr><td class="place">';
+			$hd .= '<tr>';
+			
+      // add some context to the name
+	  	$hd .= "<td class=\"relatedicon\">";
+      $term = $link->getTerm();
+
+      // if it's a related resource, show the related icon
+      if ( $term == 'related') {
+	      $linkicon = $poilinks_related;
+ 
+				// unless it's facebook or linkedin, then show their icons
+				$sch = $link->getScheme();
+				if ( !empty($sch) ) {
+					if ( stripos($sch, 'facebook') !== false ) {
+						$linkicon = $poilinks_facebook;
+					} else if ( stripos($sch, 'linkedin') !== false ) {
+						$linkicon = $poilinks_linkedin;
+					} else if ( stripos($sch, 'wikipedia') !== false ) {
+						$linkicon = $poilinks_wikipedia;
+					}
+				}
+        $hd .= $linkicon;
+
+      } else {
+        $hd .= $term;
+      }
+      
+      // if this is an image, show a preview
+      $imagetypes = array('image/jpeg', 'jpeg', 'image/png', 'png', 'image/gif', 'gif');
+      $rtype = $link->getType();
+      if ( !empty($rtype) && (array_search($rtype, $imagetypes) !== FALSE ) ) {
+        $hd .= '<img itemprop="photo" src="' . $href . '" width="32">' . $endln;
+      }
+      $hd .= "</td>\n"; // end related place icon or preview image
+
+      $hd .= '<td class="place">';
 
       $href = $link->getHref();
       if ( !empty($href) ) $hd .= '<a href="' . $href. '" target="_blank">';
@@ -299,39 +334,6 @@ function getRelatedPlaces($poi) {
 	  	$hd .= $relplacename;
       if ( !empty($href) ) $hd .= "</a>";
       $hd .= "</td>\n"; // end related place name
-
-      // add some context to the name
-	  	$hd .= "<td class=\"relatedicon\">";
-      $term = $link->getTerm();
-
-      // if it's a related resource, show the related icon
-      if ( $term == 'related') {
-	      $linkicon = $poilinks_related;
- 
-				// unless it's facebook or linkedin, then show their icons
-				$sch = $link->getScheme();
-				if ( !empty($sch) ) {
-					if ( stripos($sch, 'facebook') !== false ) {
-						$linkicon = $poilinks_facebook;
-					} else if ( stripos($sch, 'linkedin') !== false ) {
-						$linkicon = $poilinks_linkedin;
-					} else if ( stripos($sch, 'wikipedia') !== false ) {
-						$linkicon = $poilinks_wikipedia;
-					}
-				}
-        $hd .= $linkicon;
-
-      } else {
-        $hd .= $term;
-      }
-      
-      // if this is an image, show a preview
-      $imagetypes = array('image/jpeg', 'jpeg', 'image/png', 'png', 'image/gif', 'gif');
-      $rtype = $link->getType();
-      if ( !empty($rtype) && (array_search($rtype, $imagetypes) !== FALSE ) ) {
-        $hd .= '<img itemprop="photo" src="' . $href . '" width="32">' . $endln;
-      }
-      $hd .= "</td>\n"; // end related place icon or preview image
 
 			//// begin icons showing what info the POI source provides
       // $hd .= "<td class=\"placeicons\">";

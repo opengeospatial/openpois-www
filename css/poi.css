@@ -74,7 +74,7 @@
 
 #relatedplaces {
   table-layout: fixed;
-  /*margin: 4px;*/
+  margin: 4px;
 }
 .relatedicon {
   width: 32px;
@@ -82,7 +82,7 @@
 }
 #relatedplaces .place {
   vertical-align: top;
-  text-align: right;
+  /*text-align: right;*/
   padding-right: 4px;
   padding-bottom: 4px;
   line-height: 1;
