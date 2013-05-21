@@ -13,7 +13,7 @@
 		}(document, 'script', 'facebook-jssdk'));
 		</script>
 	<div id="masthead">
-		<img src="/graphics/logo_banner.png" style="width:400px">
+		<img src="/graphics/logo_banner_blueblue.png" style="width:400px">
 		<div id="subx">serving data on 9 million places, and counting...</div>
 	</div><!--<p><b>What can I do with the OpenPOI Registry?</b></p>-->
 
