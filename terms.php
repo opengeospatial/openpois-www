@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-    <title>OpenPOI Registry Terms</title>
+    <title>OpenPOIs Terms</title>
   </head>
   <body>
     <div id="banner">
@@ -10,7 +10,7 @@
 		<h1>Terms</h1>
 
 	    <p class="question">License</p>
-	    <p class="answer"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">work</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+	    <p class="answer"><img alt="ODbL License" style="border-width:0" src="http://assets.okfn.org/web/images/header-logox2.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">database</span> is made available under the <a target="_blank" href="http://opendatacommons.org/licenses/odbl/">Open Database License (ODbL): http://opendatacommons.org/licenses/odbl/1.0/</a>. Any rights in individual contents of the database are licensed under the Database Contents License: <a target="_blank" href="http://opendatacommons.org/licenses/dbcl/1.0/">http://opendatacommons.org/licenses/dbcl/1.0/</a></p>
 	    <p class="question">Free</p>
 	    <p class="answer">The OpenPOI Registry is 100% free to use.<br />
 	    </p>
