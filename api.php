@@ -19,7 +19,7 @@
 		<h1>Web Services API</h1>
 
     <h3>Request</h3>
-    <span class="codehl">http://openpois.ogcnetwork.net/poiquery.php?</span>
+    <span class="codehl">http://openpois.net/poiquery.php?</span>
     <h3>Parameters</h3>
     <table class="ink-table ink-zebra ink-hover" width="80%">
       <tbody>
@@ -101,24 +101,24 @@
     </table>
     <h3>Query Examples</h3>
     <h4>ID</h4>
-    <p class="codehl"><a href="http://openpois.ogcnetwork.net/poiquery.php?id=adc77fe6-5ad3-4d83-b109-5cb44eb62267&amp;format=application/json"
-        target="_new">http://openpois.ogcnetwork.net/poiquery.php?id=adc77fe6-5ad3-4d83-b109-5cb44eb62267&amp;format=application/json
+    <p class="codehl"><a href="http://openpois.net/poiquery.php?id=adc77fe6-5ad3-4d83-b109-5cb44eb62267&amp;format=application/json"
+        target="_new">http://openpois.net/poiquery.php?id=adc77fe6-5ad3-4d83-b109-5cb44eb62267&amp;format=application/json
         </a></p>
     <h4>RESTful ID</h4>
-    <p class="codehl"><a href="http://openpois.ogcnetwork.net/pois/adc77fe6-5ad3-4d83-b109-5cb44eb62267.xml"
-        target="_new">http://openpois.ogcnetwork.net/pois/adc77fe6-5ad3-4d83-b109-5cb44eb62267.xml</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/adc77fe6-5ad3-4d83-b109-5cb44eb62267.xml"
+        target="_new">http://openpois.net/pois/adc77fe6-5ad3-4d83-b109-5cb44eb62267.xml</a></p>
     <h4>Radius and point</h4>
-    <p class="codehl"><a href="http://openpois.ogcnetwork.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml"
-        target="_new">http://openpois.ogcnetwork.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml</a></p>
+    <p class="codehl"><a href="http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml"
+        target="_new">http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml</a></p>
     <h4>Bounding box</h4>
-    <p><span class="codehl"><a href="http://openpois.ogcnetwork.net/poiquery.php?bbox=-71.10,42.35,-71.00,42.45&amp;maxfeatures=20&format=application/json"
-          target="_new">http://openpois.ogcnetwork.net/poiquery.php?bbox=-71.10,42.35,-71.00,42.45&amp;maxfeatures=20&format=application/json</a></span></p>
+    <p><span class="codehl"><a href="http://openpois.net/poiquery.php?bbox=-71.10,42.35,-71.00,42.45&amp;maxfeatures=20&format=application/json"
+          target="_new">http://openpois.net/poiquery.php?bbox=-71.10,42.35,-71.00,42.45&amp;maxfeatures=20&format=application/json</a></span></p>
     <h4>Time and area</h4>
-    <p class="codehl"><a href="http://openpois.ogcnetwork.net/poiquery.php?lat=25.959&amp;lon=119.519&amp;maxfeatures=1&amp;format=xml&amp;radius=1000&amp;start=944"
-        target="_new">http://openpois.ogcnetwork.net/poiquery.php?lat=25.959&amp;lon=119.519&amp;maxfeatures=1&amp;format=xml&amp;radius=1000&amp;start=944</a></p>
+    <p class="codehl"><a href="http://openpois.net/poiquery.php?lat=25.959&amp;lon=119.519&amp;maxfeatures=1&amp;format=xml&amp;radius=1000&amp;start=944"
+        target="_new">http://openpois.net/poiquery.php?lat=25.959&amp;lon=119.519&amp;maxfeatures=1&amp;format=xml&amp;radius=1000&amp;start=944</a></p>
     <p><br />
     </p>
-    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.ogcnetwork.net/api.html"
+    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net/api.html"
       class="fb-like"></div>
     <p><br />
     </p>

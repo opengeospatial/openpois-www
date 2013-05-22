@@ -24,7 +24,7 @@ include_once('../loginout.php');
 		  window.fbAsyncInit = function() {
 		    FB.init({
 		      appId      : '473919912642476', // App ID
-		      channelUrl : '//openpois.ogcnetwork.net/channel.html', // Channel File
+		      channelUrl : '//openpois.net/channel.html', // Channel File
 		      status     : true, // check login status
 		      cookie     : true, // enable cookies to allow the server to access the session
 		      xfbml      : true  // parse XFBML

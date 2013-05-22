@@ -30,7 +30,7 @@
 
 		<p>&nbsp;</p>
 		<div id="fb-root"></div>
-    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.ogcnetwork.net"
+    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net"
       class="fb-like"></div>
 		<p>&nbsp;</p>
 		<?php include('footer.php'); ?>
