@@ -105,8 +105,12 @@
         target="_new">http://openpois.net/poiquery.php?id=f0aa9f2f-c091-4dc2-9282-3a5dbbec8314&amp;format=application/json
         </a></p>
     <h4>RESTful ID</h4>
-    <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml"
-        target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314"
+        target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.json"
+        target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.json</a></p>
+	  <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml"
+     		target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml</a></p>
     <h4>Radius and point</h4>
     <p class="codehl"><a href="http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml"
         target="_new">http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml</a></p>
