@@ -17,8 +17,10 @@
     </div>
 	<div class="ink-container">
 		<h1>Web Services API</h1>
-
-    <h3>Request</h3>
+		<p>OpenPOIs has two APIs available for use. It implements the industry standard <a href="#wfsapi">Web Feature Service API</a> for geographic data query, and also has its <a href="#customapi">own custom API</a>.</p>
+		
+		<h2><a name="customapi"></a>Custom API</h2>
+    <h3>Request base URL</h3>
     <span class="codehl">http://openpois.net/poiquery.php?</span>
     <h3>Parameters</h3>
     <table class="ink-table ink-zebra ink-hover" width="80%">
@@ -122,10 +124,30 @@
         target="_new">http://openpois.net/poiquery.php?lat=25.959&amp;lon=119.519&amp;maxfeatures=1&amp;format=xml&amp;radius=1000&amp;start=944</a></p>
     <p><br />
     </p>
-    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net/api.html"
-      class="fb-like"></div>
+
+		<h2><a name="wfsapi"></a>OGC Web Feature Service (WFS) API</h2>
+		<p>OpenPOIs implements the <a href="http://www.opengeospatial.org/standards/wfs">the OGC WFS standard</a> using <a href="http://mapserver.org/ogc/wfs_server.html">Mapserver's implementation</a>. WFS is a full-featured API with many more options than are shown here, but here are some examples on how to use it. For more information, see the <a href="http://www.opengeospatial.org/standards/wfs">spec</a> or <a href="http://mapserver.org/ogc/wfs_server.html">Mapserver's documentation</a>.</p>
+		<p><b>NOTE: </b><em>Due to the complex nature of the POI schema, the WFS API only recognizes a few fields of a POI -- the POI's ID, primary label and geographic coordinates. Until more work is done to expand the capabilities of the WFS API, use the custom API above to get all the POI data, or use the WFS API, and then take the POI ID contained in WFS responses to query against the custom API when you need full POI data.</em><p>
+
+		<h4>GetCapabilities</h4>
+		<p><span class="codehl"><a href="/openpoiwfs?request=GetCapabilities&service=WFS&version=1.1.0">http://openpois.net/openpoiwfs?request=GetCapabilities&amp;service=WFS&amp;version=1.1.0</a></p>
+
+		<h4>DescribeFeatureType (see the GML schema)</h4>
+		<p><span class="codehl"><a href="/openpoiwfs?request=DescribeFeatureType&service=WFS&version=1.1.0&typename=minipoi">http://openpois.net/openpoiwfs?request=DescribeFeatureType&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi</a></p>
+
+		<h4>Get a single POI by ID</h4>
+		<p><span class="codehl"><a href="/openpoiwfs?request=GetFeature&service=WFS&version=1.1.0&typename=minipoi&featureid=minipoi.e3c0b6fb-c5c2-48b7-be11-70233aee0c46">http://openpois.net/openpois.net/openpoiwfs?request=GetFeature&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi&amp;featureid=minipoi.e3c0b6fb-c5c2-48b7-be11-70233aee0c46</a></p>
+			
+		<h4>Get a group of POIs by bounding box</h4>
+		<p><span class="codehl"><a href="/openpoiwfs?request=GetFeature&service=WFS&version=1.1.0&typename=minipoi&bbox=-71.05,42.40,-71.00,42.45&srsname=epsg:4326">http://openpois.net/openpoiwfs?request=GetFeature&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi&amp;bbox=-71.05,42.40,-71.00,42.45&amp;srsname=epsg:4326</a></p>
+
     <p><br />
     </p>
+
+    <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net/api.html"
+      class="fb-like"></div>
+	    <p><br />
+	    </p>
 
 			<?php include('footer.php'); ?>
 		</div><!-- end ink-container -->
