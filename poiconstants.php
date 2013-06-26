@@ -13,6 +13,7 @@ $poiatts_facebook = '<img src="' . $icondir . '/tag.png" width="16" height="16" 
 // $poilinks_related = '<img src="' . $icondir . '/link_related.png" width="32" title="related resource">';
 // $poilinks_related = '<i class="icon-link" title="related resource"></i>';
 $poilinks_related = '<i class="icon-globe info" title="related resource"></i>';
+$poilinks_image= '<i class="icon-picture info" title="image"></i>';
 
 $poilinks_wikipedia = '<img src="/graphics/wikipedia_icon.jpg" title="Wikipedia page"></i>';
 $poilinks_facebook = '<img src="/graphics/social_signin/facebook_16.png" title="Facebook page"></i>';
