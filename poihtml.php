@@ -75,6 +75,7 @@ $poidescriptions = getDescriptions($poi);
 $tagsarea = getTags($poi);
 $placesarea = getRelatedPlaces($poi);
 $nearbyplacesarea = getNearbyPlaces($myid, $lat, $lon);
+$times = getTimes($poi);
 $pictures = '		<div id="pictures" class="poiinfosection"></div>' . $endln;
 
 //// print it all out
@@ -86,11 +87,12 @@ echo $poidescriptions;
 echo '		<div id="tagsandplaces">' . $endln;
 echo $tagsarea;
 echo $placesarea;
+echo $poilocation;
+echo $times;
 echo $nearbyplacesarea;
 //// ADD RELATIONSHIPS
 echo '		</div>' . $endln;
 echo $pictures;
-echo $poilocation;
 echo '  </div>' . $endln; // end http://schema.org/Place
 echo '  <p>&nbsp;</p>' . $endln;
 
@@ -194,6 +196,22 @@ function getDescriptions($poi) {
   return $htmldata;
 }
 
+function getTimes($poi) {
+  global $endln;
+	if ( empty($poi->times) ) return '';
+
+  $htmldata = '<div id="poitimes" class="poiinfosection">' . $endln;
+	$htmldata .= '<p id="times" class="subhead">time period' . '</p>' . $endln;
+  
+  $times = $poi->times;
+	foreach ($times as $t) {
+		$htmldata .= '<div class="time" itemprop="time">' . $t->getTerm() . ': ' . $t->getValue() . '</div>' . $endln;
+	}
+  
+  $htmldata .= "</div>\n";
+  return $htmldata;
+}
+
 function getTags($poi) {
   global $endln, $loggedin, $signinmessage;
 
@@ -280,16 +298,20 @@ function getRelatedPlaces($poi) {
 				}
         $hd .= $linkicon;
 
+      } else if ($term == 'image') {
+	      $linkicon = $poilinks_image;
+        $hd .= $linkicon;
       } else {
         $hd .= $term;
       }
       
-      // if this is an image, show a preview
-      $imagetypes = array('image/jpeg', 'jpeg', 'image/png', 'png', 'image/gif', 'gif');
-      $rtype = $link->getType();
-      if ( !empty($rtype) && (array_search($rtype, $imagetypes) !== FALSE ) ) {
-        $hd .= '<img itemprop="photo" src="' . $href . '" width="32">' . $endln;
-      }
+      // if this is an image, show a preview -- this turned out to be ugly
+      // $imagetypes = array('image/jpeg', 'jpeg', 'image/png', 'png', 'image/gif', 'gif');
+      // $rtype = $link->getType();
+      // if ( !empty($rtype) && (array_search($rtype, $imagetypes) !== FALSE ) ) {
+      // 	      $href = $link->getHref();
+      //   $hd .= '<img itemprop="photo" src="' . $href . '" width="32">' . $endln;
+      // }
       $hd .= "</td>\n"; // end related place icon or preview image
 
       $hd .= '<td class="place">';
