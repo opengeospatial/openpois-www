@@ -44,7 +44,7 @@ switch ($type) {
 		if ( empty($term) ) sendError('term is required', $rawquery);
 		$poiobj = new POITermType('CATEGORY', $term, $value, $scheme);
 		$poiobj->setAuthor($author);
-		$ok = $poi->updatePOITermTypeProperty($poiobj, TRUE);
+		$ok = $poi->updatePOIProperty($poiobj, TRUE);
 		if ( $ok ) {
 			// return success
 			sendSuccess($poiobj);
@@ -58,7 +58,7 @@ switch ($type) {
 		$poiobj = new POIBaseType('DESCRIPTION');
 		$poiobj->setValue($value);
 		$poiobj->setAuthor($author);
-		$ok = $poi->updatePOIBaseTypeProperty($poiobj, TRUE);
+		$ok = $poi->updatePOIProperty($poiobj, TRUE);
 		break;
 		
 	default: 
