@@ -29,6 +29,14 @@
 		</div>
 
 		<p>&nbsp;</p>
+		<div id="funapps">
+			<p>fun apps</p>
+			<ul>
+				<li><a href="/random.html">what's near me...</a></li>
+			</ul>
+		</div>
+
+		<p>&nbsp;</p>
 		<div id="fb-root"></div>
     <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net"
       class="fb-like"></div>
