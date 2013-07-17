@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<meta name="description" content="A global, open, collaborative, standardized points of interest database provided by the Open Geospatial Consortium">
 	<title>OpenPOIs Registry</title>
 </head>
 <body>

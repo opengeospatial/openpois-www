@@ -1,7 +1,7 @@
 <?php
 $foot = <<<_HTML
 <footer class="footer">
-	<div id="copyright">copyright 2013 &copy Open Geospatial Consortium</div>
+	<div id="copyright">copyright 2013 &copy; Open Geospatial Consortium</div>
 	<div>
 		<a href="/">Home</a> | 
 		<a href="/api.php">API</a> | 
