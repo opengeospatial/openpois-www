@@ -126,6 +126,7 @@ if ( empty($pois) && !empty($id) ) {
 //   echo $poi->asXML() . "\n";
 // } 
 // exit;
+header("Expires: Mon, 22 Jul 2014 11:12:01 GMT");
 if ( $format == 'application/xml') {
   header("Content-Type: application/xml; charset=utf-8");
   echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";

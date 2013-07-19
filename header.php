@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="expires" content="Mon, 22 Jul 2014 11:12:01 GMT">
 	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="icon" type="image/png" href="/graphics/favicon.png" />
