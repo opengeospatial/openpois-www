@@ -103,16 +103,16 @@
     </table>
     <h3>Query Examples</h3>
     <h4>ID</h4>
-    <p class="codehl"><a href="http://openpois.net/poiquery.php?id=f0aa9f2f-c091-4dc2-9282-3a5dbbec8314&amp;format=application/json"
-        target="_new">http://openpois.net/poiquery.php?id=f0aa9f2f-c091-4dc2-9282-3a5dbbec8314&amp;format=application/json
+    <p class="codehl"><a href="http://openpois.net/poiquery.php?id=a75da8b9-5e85-46f2-9546-35c87ef0dda3&amp;format=application/json"
+        target="_new">http://openpois.net/poiquery.php?id=a75da8b9-5e85-46f2-9546-35c87ef0dda3&amp;format=application/json
         </a></p>
     <h4>RESTful ID</h4>
-    <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314"
-        target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314</a></p>
-    <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.json"
-        target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.json</a></p>
-	  <p class="codehl"><a href="http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml"
-     		target="_new">http://openpois.net/pois/f0aa9f2f-c091-4dc2-9282-3a5dbbec8314.xml</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3"
+        target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json"
+        target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json</a></p>
+	  <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml"
+     		target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml</a></p>
     <h4>Radius and point</h4>
     <p class="codehl"><a href="http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml"
         target="_new">http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml</a></p>
@@ -136,7 +136,7 @@
 		<p><span class="codehl"><a href="/openpoiwfs?request=DescribeFeatureType&service=WFS&version=1.1.0&typename=minipoi">http://openpois.net/openpoiwfs?request=DescribeFeatureType&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi</a></p>
 
 		<h4>Get a single POI by ID</h4>
-		<p><span class="codehl"><a href="/openpoiwfs?request=GetFeature&service=WFS&version=1.1.0&typename=minipoi&featureid=minipoi.e3c0b6fb-c5c2-48b7-be11-70233aee0c46">http://openpois.net/openpois.net/openpoiwfs?request=GetFeature&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi&amp;featureid=minipoi.e3c0b6fb-c5c2-48b7-be11-70233aee0c46</a></p>
+		<p><span class="codehl"><a href="/openpoiwfs?request=GetFeature&service=WFS&version=1.1.0&typename=minipoi&featureid=minipoi.a75da8b9-5e85-46f2-9546-35c87ef0dda3">http://openpois.net/openpois.net/openpoiwfs?request=GetFeature&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi&amp;featureid=minipoi.a75da8b9-5e85-46f2-9546-35c87ef0dda3</a></p>
 			
 		<h4>Get a group of POIs by bounding box</h4>
 		<p><span class="codehl"><a href="/openpoiwfs?request=GetFeature&service=WFS&version=1.1.0&typename=minipoi&bbox=-71.05,42.40,-71.00,42.45&srsname=epsg:4326">http://openpois.net/openpoiwfs?request=GetFeature&amp;service=WFS&amp;version=1.1.0&amp;typename=minipoi&amp;bbox=-71.05,42.40,-71.00,42.45&amp;srsname=epsg:4326</a></p>
