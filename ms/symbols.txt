@@ -7,8 +7,13 @@ SYMBOLSET
 			2 2
 		END
 	END
-
-  	SYMBOL 
+	SYMBOL 
+		NAME "blueteardrop"
+		TYPE truetype
+		FONT "fontawesome"
+		CHARACTER "&#xf041;"
+	END
+  SYMBOL 
 		NAME "pushpin"
 		TYPE pixmap
 		IMAGE "redpin2.gif"

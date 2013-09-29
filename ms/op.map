@@ -86,7 +86,7 @@ MAP
         BUFFER 4
 		#ANTIALIAS TRUE
 		POSITION CC
-		OFFSET 0 8
+		OFFSET 0 24
 		PARTIALS FALSE # when tiling you should always set partials to false
       END
     END
@@ -98,22 +98,24 @@ MAP
     PROJECTION
       "init=epsg:4326"
     END
-	CONNECTIONTYPE POSTGIS
-	CONNECTION	"host=localhost dbname=openpoidb user=poiwebuser password=fungwabus"
+		CONNECTIONTYPE POSTGIS
+		CONNECTION	"host=localhost dbname=openpoidb user=poiwebuser password=fungwabus"
     DATA         "geompt from geo using srid=4326 using unique oid"
     STATUS       ON
-#    MINSCALEDENOM 4800
+#   MINSCALEDENOM 4800
     MAXSCALEDENOM 100000
+		SYMBOLSCALEDENOM 24000
 
     CLASS
-      NAME       "blue diamond"
+      NAME       "blue teardrop"
       STYLE
-		SYMBOL "circle" #"diamond"
-		SIZE 10
-		COLOR        0 58 107 #212 25 25 #255 0 0
-		OUTLINECOLOR 11 102 211 #255 255 255 #212 25 25 #255 0 0 #255 255 0
-		WIDTH 4 #1
-      END
+				SYMBOL "blueteardrop"
+				SIZE 8
+				MAXSIZE 32
+				COLOR        0 164 255 #212 25 25 #255 0 0 #0 58 107 
+#				OUTLINECOLOR 11 102 211 #255 255 255 #212 25 25 #255 0 0 #255 255 0
+				WIDTH 4 #1
+    	END
     END
   END # geompt ends
   # End of LAYER DEFINITIONS -------------------------------
