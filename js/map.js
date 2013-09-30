@@ -126,7 +126,12 @@ function initmap() {
 
    });
    
-   
+  // check for a mobile platform and add the right zoom control
+	el = document.createElement('div');
+	var isMobile = ('ontouchstart' in el);
+	zctl = new OpenLayers.Control.Zoom();
+  if ( !isMobile ) zctl = new OpenLayers.Control.PanZoomBar();
+
   map = new OpenLayers.Map({
     div: 'map', 
     projection: epsg3857, 
@@ -138,7 +143,7 @@ function initmap() {
               enableKinetic: true
           }
       }), 
-      new OpenLayers.Control.PanZoomBar(), 
+      zctl, 
       // geolocate
     ]
   });
