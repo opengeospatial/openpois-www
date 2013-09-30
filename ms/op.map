@@ -81,7 +81,7 @@ MAP
 		OUTLINECOLOR 255 255 255
 		OUTLINEWIDTH 2
         TYPE TRUETYPE
-        FONT arial-rounded-bold
+        FONT montserrat-bold #arial-rounded-bold
         SIZE 9
         BUFFER 4
 		#ANTIALIAS TRUE

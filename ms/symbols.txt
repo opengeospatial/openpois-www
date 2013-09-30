@@ -10,6 +10,8 @@ SYMBOLSET
 	SYMBOL 
 		NAME "blueteardrop"
 		TYPE truetype
+          	POSITION uc
+                ANTIALIAS TRUE
 		FONT "fontawesome"
 		CHARACTER "&#xf041;"
 	END
