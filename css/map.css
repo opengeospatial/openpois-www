@@ -1,3 +1,5 @@
+/* @override http://poi.local/css/map.css */
+
 /**
  * map CSS
  */
@@ -12,12 +14,12 @@
 }
 
 @media only screen and (max-width: 640px) {
-	body {
+	/*body {
 	  width: 320px;
-	}
+	}*/
 
 	#sidebar {
-	  width: 296px;
+	  /*width: 296px;*/
 	  margin: 0px 0px 4px;
 	  background-color: #003a6b;
 	  padding: 2px 0 2px 2px;
