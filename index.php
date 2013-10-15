@@ -24,7 +24,7 @@
 			<ul>
 				<li>Get data <span class="dimmed">using the </span><a href="api.php">API</a></li>
 				<li><span class="dimmed">Explore the </span><a href="map.html">map</a></li>
-				<li>Contribute<span class="dimmed"> to the cause. Add your own tags and descriptions on any POI listing</span></li>
+				<li><a href="participate.php">Contribute</a><span class="dimmed"> to the cause. Add your own tags and descriptions on any POI listing</span></li>
 				<li><a href="b2b/">Manage your business listing</a><span class="dimmed"> in one place. Let Google, Yelp, Bing, Facebook, etc. </span>update from a single source</li>
 			</ul>
 		</div>
