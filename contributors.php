@@ -5,6 +5,7 @@
     <div id="banner">
     	<span id="title"></span>
     	<span id="sub">the web of location data</span>
+			<?php include('footer.php'); ?>
     </div>
 	<div class="ink-container">
 		<h1>Contributors</h1>
@@ -50,7 +51,6 @@
 	    <p> <br />
 	      <br />
 	    </p>
-		<?php include('footer.php'); ?>
 	</div><!-- end ink-container -->
   </body>
 </html>

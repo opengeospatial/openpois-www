@@ -5,6 +5,7 @@
     <div id="banner">
     	<span id="title"></span>
    		<span id="sub">Frequently Asked Questions</span>
+			<?php include('footer.php'); ?>
     </div>
 	<div class="ink-container">
 		<h1>Frequently Asked Questions</h1>
@@ -43,7 +44,6 @@
 	    <p class="answer"> <br />
 	      <br />
 	    </p>
-		<?php include('footer.php'); ?>
 	</div><!-- end ink-container -->
   </body>
 </html>

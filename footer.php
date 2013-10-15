@@ -9,7 +9,7 @@ $foot = <<<_HTML
     <a href="/faq.php">FAQ</a> | 
     <a href="/contributors.php">Contributors</a> | 
     <a href="/terms.php">Terms</a> | 
-    <a href="https://lists.opengeospatial.org/mailman/listinfo/openpoidb-announce">Mailing List</a> | 
+    <a href="/participate.php">Participate</a> | 
 	</div>
 </footer>
 _HTML;
