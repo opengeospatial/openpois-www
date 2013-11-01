@@ -1,6 +1,4 @@
-/* @override 
-	http://poi.local/css/style.css
-*/
+/* @override http://poi.local/css/style.css */
 
 /**
  * CSS Reset
@@ -20,16 +18,20 @@ a img {border:none;}*/
  * Basic Typography
  */
 body {
-    font-family: MuseoSans-500,'Doppio One',sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
     font-style: normal;
-    /*font-size: 80%;*/
+    font-weight: 400;
     color: #222;
     background: #fff;
-    /*margin: 1em 1.5em;*/
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Montserrat, Cambria,serif;
+    font-weight: 400;
 }
 
 #banner {
-  font-family: MuseoSans-500, 'Doppio One', sans-serif;
+  font-family: Montserrat, Cambria, sans-serif;
   color: #fff;
   width: 100%;
   line-height: 1.1;

@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="icon" type="image/png" href="/graphics/favicon.png" />
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Montserrat' rel='stylesheet' type='text/css'>
 	<link type="text/css" rel="stylesheet" href="/css/MyFontsWebfontsKit.css">
 	<link type="text/css" rel="stylesheet" href="/css/ink/css/ink.css">
 	<link type="text/css" rel="stylesheet" href="/css/style.css">
