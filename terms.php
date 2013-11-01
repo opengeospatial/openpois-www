@@ -22,6 +22,14 @@
 	    <p class="answer"> <br />
 	      <br />
 	    </p>
+			<p>These licensing terms have been developed to fulfill the requirements of the open POI databases upon with the system has been built. Here for your convenience, are the licenses of the primary components of OpenPOIs</p>
+			<p class="question">Geonames license</p>
+	    <p class="answer"><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></p>
+			<p class="question">OpenStreetMap license</p>
+	    <p class="answer"><a href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</a></p>
+			<p class="question">dbPedia is a derivative of Wikipedia, which uses this license</p>
+	    <p class="answer"><a href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License</a></p>
+
 	</div><!-- end ink-container -->
   </body>
 </html>
