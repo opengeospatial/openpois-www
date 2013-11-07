@@ -41,7 +41,8 @@
 		<div id="fb-root"></div>
     <div data-show-faces="true" data-width="450" data-send="true" data-href="http://openpois.net"
       class="fb-like"></div>
-		<p>&nbsp;</p>
+		<p align="right"><img src="http://lab.linkeddata.deri.ie/2010/lod-badges/img/data-badge-5.png" alt="five star open Web data" /></p>
+
 		<?php include('footer.php'); ?>
 	</div><!-- end ink-container -->
 	</body>
