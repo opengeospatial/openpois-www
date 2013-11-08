@@ -25,6 +25,13 @@ $id = null;
 $maxfeatures = 1;
 $format = 'text/html';
 $output = 'full';
+$jsonp = false;
+$callback = '';
+
+if ( isset ($query['callback']) ) {
+	$jsonp = true;
+	$callback = $query['callback'];
+}
 
 if ( isset($query['id'])) {
   $ids = explode('.', $query['id']); // check if the id has a format extension
@@ -140,6 +147,10 @@ if ( $format == 'application/xml') {
 
 } else if ( $format == 'application/json' ) {
   header("Content-Type: application/json; charset=utf-8");
+	
+	// handle JSONP request
+	if ( $jsonp ) echo "$callback(";
+
   if ( sizeof($pois) == 1 && $output == 'full' ) {
     echo $pois[0]->asJSON();
   } else {
@@ -163,6 +174,8 @@ if ( $format == 'application/xml') {
         for ($i=1;$i<sizeof($pois);$i++) echo ",\n\t" . $pois[$i]->asJSON();
       }
       echo "\n]}";
+			// end handle JSONP request
+			if ( $jsonp ) echo ");";
   }
 
 } else if ( $format == 'text/plain' ) {
