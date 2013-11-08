@@ -19,10 +19,11 @@
 	    <p class="answer">You are free to contribute to the quantity and quality of information.</p>
 	    <p class="question">'As-is'</p>
 	    <p class="answer">The data is provided "as is" without warranty or any representation of accuracy, timeliness or completeness.</p>
-	    <p class="answer"> <br />
-	      <br />
-	    </p>
-			<p>These licensing terms have been developed to fulfill the requirements of the open POI databases upon with the system has been built. Here for your convenience, are the licenses of the primary components of OpenPOIs</p>
+	    <p class="answer"> <br /></p>
+	
+	<hr width="50%">
+
+			<p>These licensing terms have been developed to fulfill the requirements of the open POI databases upon with the system has been built. Here for your convenience, are the licenses of the primary components of OpenPOIs:</p>
 			<p class="question">Geonames license</p>
 	    <p class="answer"><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></p>
 			<p class="question">OpenStreetMap license</p>
