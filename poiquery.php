@@ -147,6 +147,7 @@ if ( $format == 'application/xml') {
 
 } else if ( $format == 'application/json' ) {
   header("Content-Type: application/json; charset=utf-8");
+	header("Access-Control-Allow-Origin: *");
 	
 	// handle JSONP request
 	if ( $jsonp ) echo "$callback(";
