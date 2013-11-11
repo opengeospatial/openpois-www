@@ -150,17 +150,18 @@ if ( $format == 'application/xml') {
   if ( sizeof($pois) > 1 ) echo "</pois>\n";
 
 } else if ( $format == 'application/geojson+json' ) {
+
   header("Content-Type: application/json; charset=utf-8");
 	header("Access-Control-Allow-Origin: *");
 	
 	if ( $jsonp ) echo "$callback("; // handle JSONP request
 
   if ( sizeof($pois) == 1 ) {
-    echo $pois[0]->asJSON();
+    echo $pois[0]->asGeoJSON();
   } else {
     echo "{\"type\": \"FeatureCollection\",\n\"features\": [\n";
-		echo $pois[0]->asJSON();
-		for ($i=1;$i<sizeof($pois);$i++) echo ",\n" . $pois[$i]->asJSON();
+		echo $pois[0]->asGeoJSON();
+		for ($i=1;$i<sizeof($pois);$i++) echo ",\n" . $pois[$i]->asGeoJSON();
 		echo "\n]\n}";
 	}
 
