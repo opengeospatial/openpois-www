@@ -51,6 +51,10 @@ if (isset($query['output'])) {
 if (isset($query['format'])) $format = trim( strtolower($query['format']) );
 if ( $format == 'text/json' ) $format = 'application/json';
 else if ( $format == 'json' ) $format = 'application/json';
+else if ( $format == 'geojson' ) $format = 'application/geojson+json';
+else if ( $format == 'geojson+json' ) $format = 'application/geojson+json';
+else if ( $format == 'text/geojson' ) $format = 'application/geojson+json';
+else if ( $format == 'application/geojson' ) $format = 'application/geojson+json';
 else if ( $format == 'xml' ) $format = 'application/xml';
 else if ( $format == 'text/xml' ) $format = 'application/xml';
 else if ( $format == 'html' ) $format = 'text/html';
@@ -144,6 +148,23 @@ if ( $format == 'application/xml') {
   //   echo "<poi id=\"" . $poi->getID() . "\" />";
   // } 
   if ( sizeof($pois) > 1 ) echo "</pois>\n";
+
+} else if ( $format == 'application/geojson+json' ) {
+  header("Content-Type: application/json; charset=utf-8");
+	header("Access-Control-Allow-Origin: *");
+	
+	if ( $jsonp ) echo "$callback("; // handle JSONP request
+
+  if ( sizeof($pois) == 1 ) {
+    echo $pois[0]->asJSON();
+  } else {
+    echo "{\"type\": \"FeatureCollection\",\n\"features\": [\n";
+		echo $pois[0]->asJSON();
+		for ($i=1;$i<sizeof($pois);$i++) echo ",\n" . $pois[$i]->asJSON();
+		echo "\n]\n}";
+	}
+
+	if ( $jsonp ) echo ");"; // end handle JSONP request
 
 } else if ( $format == 'application/json' ) {
   header("Content-Type: application/json; charset=utf-8");
