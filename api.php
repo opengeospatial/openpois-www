@@ -32,48 +32,47 @@
           <th scope="col">description</th>
         </tr>
         <tr>
-          <td>id</td>
+          <td><code>id</code></td>
           <td><em>UUID</em></td>
           <td>globally unique id of the POI<br />
             <em>if present, all other parameters (except format) are ignored</em></td>
         </tr>
         <tr>
-          <td>format</td>
+          <td><code>format</code></td>
           <td><em>string<br />
             </em></td>
           <td>MIME type of the return value<br />
-              <strong>options:</strong> text/html, application/json or
-              application/xml <br />
-              <strong>default:</strong> text/html
+              <strong>options:</strong> <code>text/html</code>, <code>geojson</code>, <code>application/json</code> or <code>application/xml</code><br />
+              <strong>default:</strong> <code>text/html</code>
           </td>
         </tr>
         <tr>
-          <td>name</td>
+          <td><code>name</code></td>
           <td><em>string</em></td>
           <td>primary name/label of the POI<br />
             <em>required if id is not present</em></td>
         </tr>
         <tr>
-          <td>bbox</td>
+          <td><code>bbox</code></td>
           <td><em>comma-separated decimals</em></td>
           <td>geographic bounding box in EPSG:4326 (lat/lon)<br />
             <strong>format:</strong> left,lower,right,upper<br />
             <em>if present, lat/lon/radius are ignored</em></td>
         </tr>
         <tr>
-          <td>lat</td>
+          <td><code>lat</code></td>
           <td><em>decimal</em></td>
           <td>latitude<br />
             <em>required for lat/lon/radius search</em></td>
         </tr>
         <tr>
-          <td>lon</td>
+          <td><code>lon</code></td>
           <td><em>decimal</em></td>
           <td>longitude<br />
             <em>required for lat/lon/radius search</em></td>
         </tr>
         <tr>
-          <td>radius</td>
+          <td><code>radius</code></td>
           <td><em>decimal</em></td>
           <td>search distance from lat/lon in meters<br />
               <em>used only for lat/lon/radius search<br />
@@ -81,21 +80,21 @@
           </td>
         </tr>
         <tr>
-          <td>start</td>
+          <td><code>start</code></td>
           <td><em>date</em></td>
           <td>POI came into existence after this date (POIs with no start date
             are included)<br />
             <strong>ex:</strong> 2011-10-01</td>
         </tr>
         <tr>
-          <td>end</td>
+          <td><code>end</code></td>
           <td><em>date</em></td>
           <td>POI ended existence before this date (POIs with no end date are
             included)<br />
             <strong>ex:</strong> 2012-05-01</td>
         </tr>
         <tr>
-          <td>maxfeatures</td>
+          <td><code>maxfeatures</code></td>
           <td><em>integer</em></td>
           <td>maximum number of POIs to return<br />
             <strong>default:</strong> 25 (maximum allowed is 25 also)</td>
@@ -110,6 +109,8 @@
     <h4>RESTful ID</h4>
     <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3"
         target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3</a></p>
+    <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.geojson"
+        target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.geojson</a></p>
     <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json"
         target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json</a></p>
 	  <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml"
