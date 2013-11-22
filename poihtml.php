@@ -142,6 +142,7 @@ function getRepresentations($poi) {
   $htmldata .= "<td><a itemprop=\"url\" href=\"" . $thispoiurl . "\" target=\"_blank\">" . $myid . "</a></td></tr>\n";
   $htmldata .= "<tr>" . $tdstyle . "JSON:</td><td><a href=\"" . $thispoiurl . ".json\" target=\"_blank\">" . $myid . ".json</a></td></tr>\n";
   $htmldata .= "<tr>" . $tdstyle . "XML:</td><td><a href=\"" . $thispoiurl . ".xml\" target=\"_blank\">" . $myid . ".xml</a></td></tr>\n";
+  $htmldata .= "<tr>" . $tdstyle . "RDF:</td><td><a href=\"" . $thispoiurl . ".rdf\" target=\"_blank\">" . $myid . ".rdf</a></td></tr>\n";
   $htmldata .= "<tr>" . $tdstyle . "HTML:</td><td><a href=\"" . $thispoiurl . "\" target=\"_blank\">" . $myid . ".html</a></td></tr>\n";
   $htmldata .= "</table></div>\n";
   $htmldata  .= '<meta itemprop="map" content="http://' . $_SERVER['HTTP_HOST'] . '/map.html?id=' . $myid . '"/>' . $endln;

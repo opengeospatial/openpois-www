@@ -58,6 +58,9 @@ else if ( $format == 'application/geojson' ) $format = 'application/geojson+json
 else if ( $format == 'xml' ) $format = 'application/xml';
 else if ( $format == 'text/xml' ) $format = 'application/xml';
 else if ( $format == 'html' ) $format = 'text/html';
+else if ( $format == 'text/rdf' ) $format = 'text/rdf';
+else if ( $format == 'rdf' ) $format = 'text/rdf';
+
 if ( $format == 'text/html' ) $maxfeatures = 1; // we can only handle 1 POI in an HTML response
 
 // if we have an ID, ignore all other parameters
@@ -206,6 +209,10 @@ if ( $format == 'application/xml') {
   if ( sizeof($pois) > 1 ) echo "<pois>\n";
   foreach ($pois as $poi)  echo $poi->asXML();
   if ( sizeof($pois) > 1 ) echo "</pois>\n";
+
+} else if ( $format == 'text/rdf' ) {
+  header("Content-Type: text/turtle; charset=utf-8");
+  foreach ($pois as $poi)  echo $poi->asRDF();
 
 } else { // return HTML
   header("Content-Type: text/html; charset=utf-8");

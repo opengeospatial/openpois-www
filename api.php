@@ -114,7 +114,9 @@
     <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json"
         target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.json</a></p>
 	  <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml"
-     		target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml</a></p>
+     		target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.xml</a></rdf>
+	  <p class="codehl"><a href="http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.rdf"
+     		target="_new">http://openpois.net/pois/a75da8b9-5e85-46f2-9546-35c87ef0dda3.rdf</a> (in <a href="https://github.com/pelagios/pelagios-cookbook/wiki/Pelagios-Gazetteer-Interconnection-Format" target="new"><em>Pelagios Gazetteer Interconnection format</em></a>)</p>
     <h4>Radius and point</h4>
     <p class="codehl"><a href="http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml"
         target="_new">http://openpois.net/poiquery.php?lat=42.349433712876&amp;lon=-71.040894451933&amp;maxfeatures=9&amp;format=application/xml</a></p>
