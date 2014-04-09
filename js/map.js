@@ -158,10 +158,10 @@ function initmap() {
 
     
   // create a CloudMade tile layer
-  var cloudmade = new OpenLayers.Layer.CloudMade("Cloudmade", {
-    key: '9c4b6a87177e4ae1b8736d5e9d656d96', 
-    styleId: 998 // 4 or 7 nice too
-  })
+  // var cloudmade = new OpenLayers.Layer.CloudMade("Cloudmade", {
+  //   key: '9c4b6a87177e4ae1b8736d5e9d656d96', 
+  //   styleId: 998 // 4 or 7 nice too
+  // })
   
   var mapbox = new OpenLayers.Layer.XYZ("Mapbox Basemap", 
     ["http://a.tiles.mapbox.com/v3/rajsingh.ho411f1l/${z}/${x}/${y}.png"], {
