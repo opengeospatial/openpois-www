@@ -163,6 +163,13 @@ function initmap() {
     styleId: 998 // 4 or 7 nice too
   })
   
+  var mapbox = new OpenLayers.Layer.XYZ("Mapbox Basemap", 
+    ["http://a.tiles.mapbox.com/v3/rajsingh.ho411f1l/${z}/${x}/${y}.png"], {
+      sphericalMercator: true, 
+      wrapDateLine: true, 
+      numZoomlevels: 18
+    });
+  
 	// POI layer
   var minipoi = new OpenLayers.Layer.WMS("OpenPOIs minipoi", ogcurl, 
     {
@@ -173,7 +180,7 @@ function initmap() {
     }
   );
 
-  map.addLayers( [minipoi, cloudmade] );
+  map.addLayers( [minipoi, mapbox] );
   var click = new OpenLayers.Control.Click();
   map.addControl(click);
   click.activate();
