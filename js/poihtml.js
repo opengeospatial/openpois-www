@@ -105,7 +105,7 @@ function displayPics(lat, lon, numpix) {
 
   var f = $.ajax({
       type: "GET", 
-      url: "http://api.flickr.com/services/rest", 
+      url: "https://api.flickr.com/services/rest", 
       data: req, 
       // url: "http://localhost/openpoi/www/t.json", 
       dataType: "json", 
