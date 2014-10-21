@@ -61,12 +61,12 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 // $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= "To: <rsingh@opengeospatial.org>\r\n";
+$headers .= "To: <raj@rajsingh.org>\r\n";
 $headers .= "From: OpenPOIs Admin <openpois@opengeospatial.org>\r\n";
 
 // Mail it
 $emaildata = $formatteddata . "\r\n" . $poi->asXML();
-mail('rsingh@opengeospatial.org', 'B2B Submission', $emaildata, $headers);
+mail('raj@rajsingh.org', 'B2B Submission', $emaildata, $headers);
 
 ?>
 
